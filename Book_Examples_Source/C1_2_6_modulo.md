@@ -9,12 +9,15 @@ $a \equiv b \pmod{m}$.
 (where $m\gt 0$):
     1. Integers $a$, $b$ are *congruent modulo $m$*, i.e. $a\equiv b \pmod{m}$
     2. Integers $a$ and $b$ have the same remainder when divided by $m$.
-    + *Proof*: 
-        + "$\implies$": 
-            + we have $a \equiv b\pmod{m}$. Express 
-            $a = q_1 m + r_1$ and $b = q_2 m + r_2$ by Euclidean division, 
-            where $r_1$ and $r_2$ are the respective remainders of $a$ 
-            and $b$ when divided by $m$. Then by the premise we have:
+
+## *Proof*: 
+
+### "$\implies$": 
+
++ we have $a \equiv b\pmod{m}$. Express 
+$a = q_1 m + r_1$ and $b = q_2 m + r_2$ by Euclidean division, 
+where $r_1$ and $r_2$ are the respective remainders of $a$ 
+and $b$ when divided by $m$. Then by the premise we have:
 
 $$
 \begin{align}
@@ -24,20 +27,25 @@ a - b &= km \\
 \end{align}
 $$
 
-            + we see that the RHS is divisible by $m$, then the LHS must also 
-            by divisible by $m$, thus $r_1 - r_2 = lm$ for some integers 
-            $l$; but by the property of remainder we have $r_1 \in [0, m)$ 
-            and $r_2 \in [0, m)$. Therefore, $-m < lm = r_1 - r_2 < m$ i.e. 
-            $ -1 < l < 1$. We see that $l=0$, and so 
-            $r_1 - r_2 = 0 \implies r_1 = r_2$. This means given 
-            $a\equiv b\pmod{m}$, we see $a$ and $b$ have the same 
-            remainder $r_1 = r_2 = r$ when divided by $m$.
-        + "$\impliedby$":
-            + Integers $a$ and $b$ have the same remainder $r$ when 
-            divided by $m$, then $a=q_1 m + r$ and $b=q_2 m + r$. 
-            Consider $a-b = (q_1-q_2)m + (r - r)=(q_1 - q_2)m$, we see 
-            that $a\equiv b\pmod{m}$ with $k=(q_1 - q_2)$.
-        + (Q.E.D.)
++ we see that the RHS is divisible by $m$, then the LHS must also 
+by divisible by $m$, thus $r_1 - r_2 = lm$ for some integers 
+$l$; but by the property of remainder we have $r_1 \in [0, m)$ 
+and $r_2 \in [0, m)$. Therefore, $-m < lm = r_1 - r_2 < m$ i.e. 
+$ -1 < l < 1$. We see that $l=0$, and so 
+$r_1 - r_2 = 0 \implies r_1 = r_2$. This means given 
+$a\equiv b\pmod{m}$, we see $a$ and $b$ have the same 
+remainder $r_1 = r_2 = r$ when divided by $m$.
+
+### "$\impliedby$":
+
++ Integers $a$ and $b$ have the same remainder $r$ when 
+divided by $m$, then $a=q_1 m + r$ and $b=q_2 m + r$. 
+Consider $a-b = (q_1-q_2)m + (r - r)=(q_1 - q_2)m$, we see 
+that $a\equiv b\pmod{m}$ with $k=(q_1 - q_2)$.
++ (Q.E.D.)
+
+## Properties of Congruent Modulo $m$
+
 + The following are properties of congruent modulo $m$:
     + **Reflexive**: $a\equiv a \pmod{m}$, since we see 
     $a-a = 0\cdot m$.
@@ -67,8 +75,8 @@ $$
 \end{align}
 $$
 
-        + **Compatibility with multiplication**: 
-        $ac \equiv bd \pmod{m}$:
+    + **Compatibility with multiplication**: 
+    $ac \equiv bd \pmod{m}$:
         
 $$
 \begin{align}
