@@ -12,7 +12,7 @@ $a \equiv b \pmod{m}$.
 
 ## *Proof*: 
 
-### "$\implies$": 
+### $\implies$ 
 
 + we have $a \equiv b\pmod{m}$. Express 
 $a = q_1 m + r_1$ and $b = q_2 m + r_2$ by Euclidean division, 
@@ -36,7 +36,7 @@ $r_1 - r_2 = 0 \implies r_1 = r_2$. This means given
 $a\equiv b\pmod{m}$, we see $a$ and $b$ have the same 
 remainder $r_1 = r_2 = r$ when divided by $m$.
 
-### "$\impliedby$":
+### $\impliedby$
 
 + Integers $a$ and $b$ have the same remainder $r$ when 
 divided by $m$, then $a=q_1 m + r$ and $b=q_2 m + r$. 
@@ -62,10 +62,10 @@ a-c &= (k_{ab}+k_{bc})m
 \end{align}
 $$
 
-    + For remaining listed properties, assume premise of $a\equiv b\pmod{m}$ 
-    and $c \equiv d\pmod{m}$, where $a-b=km$ and $c-d=lm$:
-        + **Compatibility with addition**: 
-        $(a+c) \equiv (b+d)\pmod{m}$:
++ For remaining listed properties, assume premise of $a\equiv b\pmod{m}$ 
+and $c \equiv d\pmod{m}$, where $a-b=km$ and $c-d=lm$:
+    + **Compatibility with addition**: 
+    $(a+c) \equiv (b+d)\pmod{m}$:
         
 $$
 \begin{align}
@@ -75,8 +75,7 @@ $$
 \end{align}
 $$
 
-    + **Compatibility with multiplication**: 
-    $ac \equiv bd \pmod{m}$:
+  + **Compatibility with multiplication**: $ac \equiv bd \pmod{m}$:
         
 $$
 \begin{align}
