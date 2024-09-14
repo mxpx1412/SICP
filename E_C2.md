@@ -138,7 +138,7 @@ Checking with sample rectangle.
 ```
 
 The results are within expectation, the angle used was calculated to 
-create a rectangle of base \(4\) and height \(3\). This method of 
+create a rectangle of base $4$ and height $3$. This method of 
 rectangle definition can be 
 [graphed in Desmos as seen here](https://www.desmos.com/calculator/ayhdefmxfr).
 
@@ -254,11 +254,11 @@ Verification by substitution model:
 
 # Exercise 2.5
 
-Notice that \(2^a\) is not divisible by \(3\) and \(3^b\) is not divisible by 
-\(2\). Thus, if \(n = 2^a 3^b\) then we can extract \(a\) by counting the 
-number of times \(m\) we need to divide \(n\) by \(2\) until the result is 
-not divisible by \(2\), this will occur precisely when \(m=a\). We can 
-extract \(b\) similarly, just dividing by \(3\) instead of \(2\). 
+Notice that $2^a$ is not divisible by $3$ and $3^b$ is not divisible by 
+$2$. Thus, if $n = 2^a 3^b$ then we can extract $a$ by counting the 
+number of times $m$ we need to divide $n$ by $2$ until the result is 
+not divisible by $2$, this will occur precisely when $m=a$. We can 
+extract $b$ similarly, just dividing by $3$ instead of $2$. 
 
 The constructor and selectors for such integer pairs can be 
 [defined as follows](./Exercise_Source/E2_5.scm):
@@ -321,8 +321,8 @@ Testing our procedures:
 ```
 
 This type of representation of integer pairs can be constructed using not 
-just \(2\) and \(3\), but any two integers that are relatively prime 
-(only positive common divisor between the two is \(1\)). 
+just $2$ and $3$, but any two integers that are relatively prime 
+(only positive common divisor between the two is $1$). 
 
 # Exercise 2.6
 
@@ -352,9 +352,9 @@ Since the last line above is the result of `(add-1 zero)`, it is in fact
 ```
 
 In fact, in general *Church numerals* represent positive integers as 
-repeated evaluation of function \(f\) on some argument \(x\). Therefore 
-addition for Church numerals \(m\), \(n\) can be defined by applying 
-\(f\) and total of \(m+n\) times [as follows](./Exercise_Source/E2_6.scm):
+repeated evaluation of function $f$ on some argument $x$. Therefore 
+addition for Church numerals $m$, $n$ can be defined by applying 
+$f$ and total of $m+n$ times [as follows](./Exercise_Source/E2_6.scm):
 
 ```scheme
 (define (plus m n) 
@@ -459,14 +459,17 @@ of the text.
 
 ## Widths When Intervals are Summed or Subtracted
 
-By the definition given, for interval \(I\) with upperbound \(UB_I\) and 
-lowerbound \(LB_I\), the width is defined as: 
+By the definition given, for interval $I$ with upperbound $UB_I$ and 
+lowerbound $LB_I$, the width is defined as: 
 
-\[w_I = \frac{UB_I - LB_I}{2}\]
+$$
+w_I = \frac{UB_I - LB_I}{2}
+$$
 
-Let \(J\) be another interval with bounds \(UB_J\) and \(LB_J\). Consider 
-\(K = I - J\). 
+Let $J$ be another interval with bounds $UB_J$ and $LB_J$. Consider 
+$K = I - J$. 
 
+$$
 \begin{align}
 w_K &= \frac{UB_K - LB_K}{2} \\
   &= \frac{1}{2} \left((UB_I - LB_J) - (LB_I - UB_J)\right) \\
@@ -474,40 +477,47 @@ w_K &= \frac{UB_K - LB_K}{2} \\
   &= \frac{1}{2} \left( (UB_I - LB_I) + (UB_J - LB_J)\right) \\
   &= w_I + w_J
 \end{align}
+$$
 
-On the other hand, consider \(L = I + J\)
+On the other hand, consider $L = I + J$
 
+$$
 \begin{align}
 w_L &= \frac{UB_L - LB_L}{2} \\
   &= \frac{1}{2} \left( (UB_I + UB_J) - (LB_I + LB_J) \right) \\
   &= \frac{1}{2} \left( UB_I - LB_I + UB_J - LB_J \right) \\
   &= w_I + w_J
 \end{align}
+$$
 
 So we see that the widths from summing or subtracting intervals is a 
 function of only the input intervals' widths.
 
 ## Widths When Intervals are Multiplied or Divided
 
-Consider \(I = [2, 5]\), \(J = [3, 7]\) and \(K = [1, 5]\). Observe that 
-\(w_J = w_K = 2\). However: 
+Consider $I = [2, 5]$, $J = [3, 7]$ and $K = [1, 5]$. Observe that 
+$w_J = w_K = 2$. However: 
 
+$$
 \begin{align}
 w(I\times J) &= w([6, 35]) = 14.5 \\
 w(I \times K) &= w([2, 25]) = 6.5 
 \end{align}
+$$
 
-Despite \(J\) and \(K\) having the same width, their interval products 
-with \(I\) does not have the same width. Therefore the widths of 
+Despite $J$ and $K$ having the same width, their interval products 
+with $I$ does not have the same width. Therefore the widths of 
 intervals produced by multiplication are not just functions of the 
 input intervals' widths. 
 
 Similarly:
 
+$$
 \begin{align}
 w\left(\frac{I}{J}\right) &= w([0.2857\ldots, 1.\overline{6}]) = 0.6904\ldots \\
 w\left(\frac{I}{K}\right) &= w([0.4, 5]) = 2.3
 \end{align}
+$$
 
 So widths of intervals produced by division are also not just functions 
 of the input intervals' widths. Below are tests done in 
@@ -553,8 +563,8 @@ of the input intervals' widths. Below are tests done in
 # Exercise 2.10
 
 + [Exericse 2.10](./Exercise_Source/E2_10.scm).
-+ Denominator interval is okay if its upperbound is smaller than \(0\) 
-or if its lowerbound is greater than \(0\).
++ Denominator interval is okay if its upperbound is smaller than $0$ 
+or if its lowerbound is greater than $0$.
 
 ```scheme
 (define (div-interval x y) 
@@ -701,7 +711,9 @@ to be concise.
 
 # Exercise 2.13
 
-Consider some interval \(I=[l_I,u_I]\). We have:
+Consider some interval $I=[l_I,u_I]$. We have:
+
+$$
 \begin{align}
 w_I &= \frac{u_I - l_I}{2} \\
 c_I &= \frac{u_I + l_I}{2} \\
@@ -709,46 +721,61 @@ u_I &= c_I + w_I \\
 l_I &= c_I - w_I \\
 p_I &= \frac{w_I}{|c_I|} 
 \end{align}
+$$
 
-Where \(l_I\) and \(u_I\) are the lower and upper bounds of \(I\), 
-\(w_I\) is the width of \(I\), \(c_I\) is the width of \(I\), and 
-\(p_I\) is the percent tolerance of \(I\). If the interval has 
+Where $l_I$ and $u_I$ are the lower and upper bounds of $I$, 
+$w_I$ is the width of $I$, $c_I$ is the width of $I$, and 
+$p_I$ is the percent tolerance of $I$. If the interval has 
 only positive numbers then: 
-\[p_I = \frac{w_I}{c_I}\]
+
+$$
+p_I = \frac{w_I}{c_I}
+$$
 
 We can rewrite the tolerance in terms of the upper and lower bounds: 
 
-\[p_I = \frac{u_I - l_I}{u_I + l_I}\]
+$$
+p_I = \frac{u_I - l_I}{u_I + l_I}
+$$
 
 Let us first consider a few example intervals:
-+ \(I:=[49,51]\) and \(J:=[0.099,0.101]\):
-  + \(p_I = 1/50 = 0.02\) and \(p_J = 0.001/0.1 = 0.01\).
-  + \(K:=I\times J = [4.851, 5.151] \), and \(p_K = \frac{5.151-4.851}{5.151+4.851} \approx 0.02999\)
-  + Remark \(0.02 + 0.01 = 0.03\).
-+ \(I:=[86,90]\) and \(J:=[2000,2008]\)
-  + \(p_I = 2/88 \approx 0.022727\) and \(p_J = 4/2004 \approx 0.001996\)
-  + \(K:=I\times J = [17200, 180720]\), and \(p_K = \frac{180720-172000}{180720+17200} \approx 0.024744\)
-  + Remark \(0.022727 + 0.001996 = 0.024723 \).
-+ \(I:=[505,515]\) and \(J:=[689,691]\):
-  + \(p_I = 5/510 \approx 0.009804\) and \(p_J = 1/690 \approx 0.001449\)
-  + \(K:=I\times J = [347945, 355865]\), and \(p_K = \frac{7920}{703810} \approx 0.011253\)
-  + Remark \(0.009804+0.001449=0.011253\).
++ $I:=[49,51]$ and $J:=[0.099,0.101]$:
+  + $p_I = 1/50 = 0.02$ and $p_J = 0.001/0.1 = 0.01$.
+  + $K:=I\times J = [4.851, 5.151] $, and $p_K = \frac{5.151-4.851}{5.151+4.851} \approx 0.02999$
+  + Remark $0.02 + 0.01 = 0.03$.
++ $I:=[86,90]$ and $J:=[2000,2008]$
+  + $p_I = 2/88 \approx 0.022727$ and $p_J = 4/2004 \approx 0.001996$
+  + $K:=I\times J = [17200, 180720]$, and $p_K = \frac{180720-172000}{180720+17200} \approx 0.024744$
+  + Remark $0.022727 + 0.001996 = 0.024723 $.
++ $I:=[505,515]$ and $J:=[689,691]$:
+  + $p_I = 5/510 \approx 0.009804$ and $p_J = 1/690 \approx 0.001449$
+  + $K:=I\times J = [347945, 355865]$, and $p_K = \frac{7920}{703810} \approx 0.011253$
+  + Remark $0.009804+0.001449=0.011253$.
 
-It appears that for intervals \(I\) and \(J\) with small tolerances \(p_I\), 
-\(p_J\), the tolerance \(p_K\) of the product \(K=I\times K\) is 
-approximately equal to \(p_I + p_J\). Let us prove this proposition 
+It appears that for intervals $I$ and $J$ with small tolerances $p_I$, 
+$p_J$, the tolerance $p_K$ of the product $K=I\times K$ is 
+approximately equal to $p_I + p_J$. Let us prove this proposition 
 for intervals with positive bounds. 
 
-Let \(I\) and \(J\) be two positive intervals with small tolerances 
-\(p_I\), \(p_J\).  Small tolerances means 
-\[0\approx p_I = \frac{w_I}{c_I} \implies c_I \gt \gt w_I\] 
-and similarly for \(p_J\). 
+Let $I$ and $J$ be two positive intervals with small tolerances 
+$p_I$, $p_J$.  Small tolerances means 
 
-Let \(K:=I\times J\). If only positive numbers are considered, then we 
+$$
+0\approx p_I = \frac{w_I}{c_I} \implies c_I \gt \gt w_I
+$$
+ 
+and similarly for $p_J$. 
+
+Let $K:=I\times J$. If only positive numbers are considered, then we 
 will have: 
-\[K=[l_K,u_K]=[l_I l_J, u_I u_J]=[(c_I-w_I)(c_J-w_J),(c_I+w_I)(c_J+w_J)]\]
+
+$$
+K=[l_K,u_K]=[l_I l_J, u_I u_J]=[(c_I-w_I)(c_J-w_J),(c_I+w_I)(c_J+w_J)]
+$$
 
 Observe that:
+
+$$
 \begin{align}
   u_K - l_K 
     &= (c_I + w_I)(c_J + w_J) - (c_I - w_I)(c_J - w_J) \\
@@ -756,9 +783,11 @@ Observe that:
       (c_I c_J - w_I c_J - c_I w_J + w_I w_J) \\
     &= 2(w_I c_J + c_I w_J)
 \end{align}
+$$
 
 ... and:
 
+$$
 \begin{align}
   u_K + l_K 
     &= (c_I + w_I)(c_J + w_J) + (c_I - w_I)(c_J - w_J) \\
@@ -766,15 +795,19 @@ Observe that:
       (c_I c_J - w_I c_J - c_I w_J + w_I w_J) \\
     &= 2(c_I c_J + w_I w_J)
 \end{align}
+$$
 
-However, based on our small tolerance assumption \(c_I \gt \gt w_I\) and 
-\(c_J \gt \gt w_J\) we can say \(c_I c_J \gt \gt w_I w_J\) and thus 
-\(c_I c_J + w_I w_J \approx c_I c_J\), which results in:
+However, based on our small tolerance assumption $c_I \gt \gt w_I$ and 
+$c_J \gt \gt w_J$ we can say $c_I c_J \gt \gt w_I w_J$ and thus 
+$c_I c_J + w_I w_J \approx c_I c_J$, which results in:
 
-\[u_K + l_K \approx 2 c_I c_J\]
+$$
+u_K + l_K \approx 2 c_I c_J
+$$
 
 Then we see that:
 
+$$
 \begin{align}
 p_K 
   &= \frac{w_K}{c_K} \\
@@ -784,6 +817,7 @@ p_K
 p_K
   &= p_I + p_J 
 \end{align}
+$$
 
 Therefore the product of two intervals with small percent tolerances has a 
 simple approximate formula as its onw percent tolerance, namely the sum of 
@@ -791,13 +825,19 @@ the factors' tolerances.
 
 # Exercise 2.14
 
-+ Note that for a positive interval \(A\) with small percent tolerance, 
-\(1/A\) would have approximately the same percent tolerance as \(A\).
-+ To see this consider \(\frac{1}{A}\):
-\[
++ Note that for a positive interval $A$ with small percent tolerance, 
+$1/A$ would have approximately the same percent tolerance as $A$.
++ To see this consider $\frac{1}{A}$:
+
+$$
+
 \frac{1}{A} = \left[ \frac{1}{c_A + w_A}, \frac{1}{c_A - w_A} \right] \\
-\]
-+ The width of \(\frac{1}{A}\):
+
+$$
+
++ The width of $\frac{1}{A}$:
+
+$$
 \begin{align}
 w\left( \frac{1}{A} \right)
   &= \frac{1}{2} \left( \frac{1}{c_A - w_A} - \frac{1}{c_A + w_A}\right) \\
@@ -806,7 +846,11 @@ w\left( \frac{1}{A} \right)
 w\left(\frac{1}{A}\right)
   &= \frac{w_A}{c_A} 
 \end{align}
-+ The centre of \(\frac{1}{A}\):
+$$
+
++ The centre of $\frac{1}{A}$:
+
+$$
 \begin{align}
 c\left(\frac{1}{A}\right) 
   &= \frac{1}{2} \left( \frac{1}{c_A - w_A} + \frac{1}{c_A + w_A}\right) \\
@@ -815,7 +859,11 @@ c\left(\frac{1}{A}\right)
 c\left(\frac{1}{A}\right) 
   &= \frac{1}{c_A} 
 \end{align}
-+ The percent tolerance of \(\frac{1}{A}\):
+$$
+
++ The percent tolerance of $\frac{1}{A}$:
+
+$$
 \begin{align}
 p\left(\frac{1}{A}\right)
   &= \frac{w(1/A)}{c(1/A)} \\
@@ -823,6 +871,7 @@ p\left(\frac{1}{A}\right)
   &= \frac{w_A}{c_A} \\
   &= p_A
 \end{align}
+$$
 
 + [Exercise 2.14](./Exercise_Source/E2_14.scm).
 
@@ -881,40 +930,46 @@ representing the same algebraic expression. Also observe above that
 `(div-interval A A)` does not produce an interval with centre at `1`, 
 but rather off by some amount. The width of `(div-interval A A)` is also 
 double the width of `A` for small width intervals (this makes sense as our 
-interval division definition \(A/A\) would compute it essentially as 
-\(A \cdot \frac{1}{A}\), the width of \(\frac{1}{A}\) is approx. the 
-same as \(A\) for small intervals, and the width of an interval product 
-is approx. the sum of its widths' factors), so we see \(A/A\) is not the 
-same as an interval \(1\) with width zero when computed with interval arithmetic. 
+interval division definition $A/A$ would compute it essentially as 
+$A \cdot \frac{1}{A}$, the width of $\frac{1}{A}$ is approx. the 
+same as $A$ for small intervals, and the width of an interval product 
+is approx. the sum of its widths' factors), so we see $A/A$ is not the 
+same as an interval $1$ with width zero when computed with interval arithmetic. 
 
 # Exercise 2.15
 
-Eva Lu Ator is correct. Consider the additive identity \(0\) for 
-real arithmetic. In real arithmetic, for any \(x\in\mathbb{R}\), 
-we have the property that \(x+0=x\). Furthermore we can obtain 
-the additive identity \(0\) by computing \(x-x\). Therefore 
-the expression \(x+0\) can be re-written as \(x + (x-x)\). 
+Eva Lu Ator is correct. Consider the additive identity $0$ for 
+real arithmetic. In real arithmetic, for any $x\in\mathbb{R}$, 
+we have the property that $x+0=x$. Furthermore we can obtain 
+the additive identity $0$ by computing $x-x$. Therefore 
+the expression $x+0$ can be re-written as $x + (x-x)$. 
 
-For interval arithmetic we can also have an additive identity \(\mathbf{0}\) 
-where \(\mathbf{0}=[0,0]\). For any interval \(I\) it does satisfy the 
+For interval arithmetic we can also have an additive identity $\mathbf{0}$ 
+where $\mathbf{0}=[0,0]$. For any interval $I$ it does satisfy the 
 property that: 
 
-\[I+\mathbf{0}=[l_I + 0, u_I+0]=[l_I,u_I]=I\]. 
+$$
+I+\mathbf{0}=[l_I + 0, u_I+0]=[l_I,u_I]=I
+$$
+. 
 
-What is different however, is that we do not generally obtain \(\mathbb{0}\) 
-by computing \(I-I\):
+What is different however, is that we do not generally obtain $\mathbb{0}$ 
+by computing $I-I$:
 
-\[I-I = [l_I - u_l, u_l - l_I]\]
+$$
+I-I = [l_I - u_l, u_l - l_I]
+$$
 
-If \(I\) has non-zero width, \(l_I - u_l \neq 0\) and \(u_l - l_I\neq 0\). 
-Therefore, while adding/subtracting \(x-x\) for real numbers will have 
+If $I$ has non-zero width, $l_I - u_l \neq 0$ and $u_l - l_I\neq 0$. 
+Therefore, while adding/subtracting $x-x$ for real numbers will have 
 trivial results, it is not trivial for intervals, where the inherent 
 uncertainty in the interval will alter the result. Indeed, while in 
-reals we always have \(-x\) as the additive inverse of \(x \in \mathbb{R}\), 
-such that \(x + -x = 0\), there is no such additive inverse for intervals. 
-To see this suppose \(J\) is the additive inverse of \(I\), and so 
-\(I + J = \mathbb{0}\), then:
+reals we always have $-x$ as the additive inverse of $x \in \mathbb{R}$, 
+such that $x + -x = 0$, there is no such additive inverse for intervals. 
+To see this suppose $J$ is the additive inverse of $I$, and so 
+$I + J = \mathbb{0}$, then:
 
+$$
 \begin{align}
 I + J &= [0, 0] \\
 [l_I + l_J, u_I + u_J] &= [0, 0] \\
@@ -923,18 +978,22 @@ l_J &= -l_I \\
 u_J &= -u_J \\
 J &= [-l_I, -u_J] \\
 \end{align}
+$$
 
-But notice we need to have \(u_I \geq l_I\), and so 
-\(-u_I \leq -l_I\), but if \(-u_I = u_J\) and \(-l_I = l_J\), 
-and we need \(u_J \geq l_J\), this would cause a contradiction 
-in cases other than the trivial \(I=J=\mathbf{0}\), therefore 
-the additive inverse \(J\) does not exist for an arbitrary \(I\). 
+But notice we need to have $u_I \geq l_I$, and so 
+$-u_I \leq -l_I$, but if $-u_I = u_J$ and $-l_I = l_J$, 
+and we need $u_J \geq l_J$, this would cause a contradiction 
+in cases other than the trivial $I=J=\mathbf{0}$, therefore 
+the additive inverse $J$ does not exist for an arbitrary $I$. 
 
 A similar situation exists for the real number multiplicative identity 
-\(1\) and the real number multiplicative inverse \(1/x\) (where 
-\(x\in\mathbf{R}\), \(x\neq 0\)). As we saw before, for an interval 
-\(I\): 
-\[\frac{I}{I} = \left[\frac{l_I}{u_I}, \frac{u_I}{l_I}\right]\neq \mathbf{1} = [1,1]\]
+$1$ and the real number multiplicative inverse $1/x$ (where 
+$x\in\mathbf{R}$, $x\neq 0$). As we saw before, for an interval 
+$I$: 
+
+$$
+\frac{I}{I} = \left[\frac{l_I}{u_I}, \frac{u_I}{l_I}\right]\neq \mathbf{1} = [1,1]
+$$
 
 And similarly we would also reach a contradiction if we want to consider a 
 general multiplicative inverse of an arbitrary interval. 
@@ -953,10 +1012,10 @@ Sometimes we do want to use such properties of intervals to describe
 real problems. For instance, say a worker is using a scoop to scoop 
 out concrete on a construction site. The volume of concrete per scoop 
 is likely subject to uncertainty, therefore the volume scooped is 
-\(V=[l_V, u_V]\). If the worker scoops two scoops of concrete into a 
+$V=[l_V, u_V]$. If the worker scoops two scoops of concrete into a 
 mold, then decides to remove one scoop from the mold, the remaining 
-volume of concrete inside the mold would be \(V+V-V\). The fact that 
-the \(V-V\) cannot be re-written as \(\mathbf{0}\) is in fact an 
+volume of concrete inside the mold would be $V+V-V$. The fact that 
+the $V-V$ cannot be re-written as $\mathbf{0}$ is in fact an 
 appropriate property, since the uncertainties in the second and 
 third scoops mean the scoopful left in the mold is not the same 
 as the initial scoop. Therefore the user must be careful that when they 
@@ -971,10 +1030,10 @@ introducing the uncertainty.
 See above answer for Exercise 2.15 as well. In short, we have seen 
 that equivalent expressions in real numbers may be relying on the 
 fact that expressions reduces to operational identities such as 
-\(0\) for addition and \(1\) for multiplicative, which in turn 
+$0$ for addition and $1$ for multiplicative, which in turn 
 can rely on the fact that these identities can be produced by 
-operational inverses such as \(-x\) for \(x\) in addition and 
-\(1/x\) for \(x\) in multiplication. These objects may not 
+operational inverses such as $-x$ for $x$ in addition and 
+$1/x$ for $x$ in multiplication. These objects may not 
 necessarily be produced with similar expressions if the underlying 
 construct changes, and indeed may not exist at all. Therefore 
 seemingly identical algebraic expressions can lead to different 
@@ -983,7 +1042,7 @@ results if the nature of the inputs are different.
 Intuitively an interval-arithmetic package that avoids the 
 shortcoming seems impossible. Consider the concrete scoop example 
 described earlier in 2.15, the fact that an interval subtracted 
-from itself does not produce \(\mathbf{0}\) is actually an 
+from itself does not produce $\mathbf{0}$ is actually an 
 accurate description in that situation. In a way these properties 
 are not shortcomings, and it seems hard to capture instances 
 where these properties apply/don't apply in a general manner. 
@@ -1857,12 +1916,12 @@ recursive nature of the process described above, the growing list eventually
 grow to encompass all subsets of `s` by considering one addtional element 
 at a time.
 + Put another way, the procedure makes use of the fact that all subsets 
-of some set \(S\) can be separated into two disjoint sets \(T\) and \(T^c\). 
-Where \(T\) has all subsets of \(S\) that has an element \(t\in S\), and 
-\(T^c\) has all subsets of \(S\) without \(t\). But to get \(T\) we only 
-need to add \(t\) to every set inside \(T^c\). This can then be repeated 
-on \(T^c\) for some other element \(u\in S\) and \(u\neq t\), eventually 
-giving all subsets of \(S\). 
+of some set $S$ can be separated into two disjoint sets $T$ and $T^c$. 
+Where $T$ has all subsets of $S$ that has an element $t\in S$, and 
+$T^c$ has all subsets of $S$ without $t$. But to get $T$ we only 
+need to add $t$ to every set inside $T^c$. This can then be repeated 
+on $T^c$ for some other element $u\in S$ and $u\neq t$, eventually 
+giving all subsets of $S$. 
 
 # Exercise 2.33
 

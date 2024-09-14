@@ -121,15 +121,15 @@ program stops altogether due to error.
 + [The original program](./Exercise_Source/E1_7a.scm)
 + If small number such as `0.0001` was tried in the original `sqrt` 
 function, the result is shown to be `0.03230844833048122`, but we 
-know from basic arithmetic \(\sqrt{0.0001}=0.01\). When the numbers 
+know from basic arithmetic $\sqrt{0.0001}=0.01$. When the numbers 
 are smaller than the tolerance of `0.001` initially imposed, the 
 program will terminate even though the error is large relative to 
 the numbers.
 + If a large number such as `99999999999999999999` or 
-\(\sum_{i=0}^{19}9\cdot 10^i\) is given as input, the result from the original 
+$\sum_{i=0}^{19}9\cdot 10^i$ is given as input, the result from the original 
 program is `10000000000.`. We know from basic arithmetic that 
-\(10000000000^2={10}^{20}\), which is a difference of \(1\) from the 
-input. This is much larger than the tolerance of \(0.001\), but it is 
+$10000000000^2={10}^{20}$, which is a difference of $1$ from the 
+input. This is much larger than the tolerance of $0.001$, but it is 
 not caught due to truncation and rounding when working with large 
 numbers. 
 ```scheme
@@ -141,10 +141,10 @@ numbers.
 ```
 + [Exercise 1.7](./Exercise_Source/E1_7.scm) implements a new test 
 following new method recommended in exercise. The program now tests 
-to see if an improved root is \(<0.0001\%\) different than a previous 
+to see if an improved root is $<0.0001\%$ different than a previous 
 root guess. This solves the issue for small numbers, however for 
 large numbers the program can perform worse than before, as a fraction 
-of a large number can be much greater than \(0.001\) or even \(1\).
+of a large number can be much greater than $0.001$ or even $1$.
 ```scheme
 1 ]=> (define test_num 99999999999999999999)
 ;Value: test_num
@@ -158,7 +158,7 @@ of a large number can be much greater than \(0.001\) or even \(1\).
 + *Additional remarks*: consulting solutions by other students, it 
 seems that in the previous program, large numbers often just fail to 
 converge as the smallest possible difference between 
-\(\mathrm{guess}^2\) and \(x\) is larger than \(0.001\). In which case the 
+$\mathrm{guess}^2$ and $x$ is larger than $0.001$. In which case the 
 modified program will perform better. Considering the tolerance as a 
 fraction of the guesses allows for a larger absolute error (but a 
 small relative error) thus allowing for convergence of some very large 
@@ -370,14 +370,14 @@ expression.
 ```
 
 + In general:
-+ \(f(n) = A(0, n) = 2n\)
-+ \(g(0) = 0\), \(g(n) = A(1, n) = 2^n\) for \(n>0\)
-+ \(h(0) = 0\), \(h(1) = 1\), \(h(n) = A(2, n) = A(1, 2^n) = 2^{2^{\dots^2}}\) 
-i.e. \(2\) raised to the power of \(2\) for \(n\) times, in other words for 
-\(n>1\), \(h(n) = {}^n 2\) (*tetration*).
++ $f(n) = A(0, n) = 2n$
++ $g(0) = 0$, $g(n) = A(1, n) = 2^n$ for $n>0$
++ $h(0) = 0$, $h(1) = 1$, $h(n) = A(2, n) = A(1, 2^n) = 2^{2^{\dots^2}}$ 
+i.e. $2$ raised to the power of $2$ for $n$ times, in other words for 
+$n>1$, $h(n) = {}^n 2$ (*tetration*).
 
 # Exercise 1.11
-+ [Recursive process for \(f(n)\)](./Exercise_Source/E1_11a.scm)
++ [Recursive process for $f(n)$](./Exercise_Source/E1_11a.scm)
 ```scheme
 1 ]=> #| Recursive process for exercise function |#
 
@@ -392,7 +392,7 @@ i.e. \(2\) raised to the power of \(2\) for \(n\) times, in other words for
 1 ]=> (f 5)
 ;Value: 25
 ```
-+ [Iterative process for \(f(n)\)](./Exercise_Source/E1_11b.scm)
++ [Iterative process for $f(n)$](./Exercise_Source/E1_11b.scm)
 ```scheme
 1 ]=> #| Iterative process for exercise function |#
 
@@ -440,8 +440,8 @@ sum of two numbers above each.
 
 ## Exercise 1.13 Proposition
 
-\(\mathrm{Fib}(n)\) is the closest integer to 
-\(\frac{\varphi^n}{\sqrt{5}}\) where \(\varphi = \frac{(1+\sqrt{5})}{2}\). 
+$\mathrm{Fib}(n)$ is the closest integer to 
+$\frac{\varphi^n}{\sqrt{5}}$ where $\varphi = \frac{(1+\sqrt{5})}{2}$. 
 
 ### *Proof of Exercise 1.13 Proposition*
 
@@ -451,28 +451,38 @@ First proving the below lemmas.
 
 #### Exercise 1.13.a Lemma
 
-Define \(\psi\) where:  
-\[\psi = \frac{1-\sqrt{5}}{2}\] 
+Define $\psi$ where:  
+
+$$
+\psi = \frac{1-\sqrt{5}}{2}
+$$
+ 
 ... then: 
-\[\mathrm{Fib}(n) = \frac{\varphi^n - \psi^n}{\sqrt{5}}\]
+
+$$
+\mathrm{Fib}(n) = \frac{\varphi^n - \psi^n}{\sqrt{5}}
+$$
 
 ##### Proof of Exercise 1.13.a Lemma
 
 We will prove the lemma using induction. 
 
-###### Base Case \(n=0\)
+###### Base Case $n=0$
 
-By definition of \(\mathrm{Fib}(n)\), \(\mathrm{Fib}(0) = 0\). 
+By definition of $\mathrm{Fib}(n)$, $\mathrm{Fib}(0) = 0$. 
 Then we see: 
 
-\[\frac{\varphi^0 - \psi^0}{\sqrt{5}} = 
-\frac{1-1}{\sqrt{5}} = 0 = \mathrm{Fib}(0)\]
+$$
+\frac{\varphi^0 - \psi^0}{\sqrt{5}} = 
+\frac{1-1}{\sqrt{5}} = 0 = \mathrm{Fib}(0)
+$$
 
-###### Base Case \(n=1\)
+###### Base Case $n=1$
 
-By definition of \(\mathrm{Fib}(n)\), \(\mathrm{Fib}(1) = 1\). 
+By definition of $\mathrm{Fib}(n)$, $\mathrm{Fib}(1) = 1$. 
 Then we see: 
 
+$$
 \begin{align}
 \frac{\varphi^1 - \psi^1}{\sqrt{5}} 
   &= \left(\frac{1+\sqrt{5}}{2} - \frac{1-\sqrt{5}}{2}\right)
@@ -483,17 +493,27 @@ Then we see:
 \implies \frac{\varphi^1 - \psi^1}{\sqrt{5}} 
   &= \mathrm{Fib}(1)
 \end{align}
+$$
 
 ###### Inductive Step
 
-Assume for some \(n>1\), we have: 
-\[\mathrm{Fib}(n) = \frac{\varphi^n - \psi^n}{\sqrt{5}}\]
+Assume for some $n>1$, we have: 
+
+$$
+\mathrm{Fib}(n) = \frac{\varphi^n - \psi^n}{\sqrt{5}}
+$$
+
 ... and: 
-\[\mathrm{Fib}(n+1) = \frac{\varphi^{n+1} - \psi^{n+1}}{\sqrt{5}}\] 
+
+$$
+\mathrm{Fib}(n+1) = \frac{\varphi^{n+1} - \psi^{n+1}}{\sqrt{5}}
+$$
+ 
 From definition we know 
-\(\mathrm{Fib}(n+2)=\mathrm{Fib}(n)+\mathrm{Fib}(n+1)\). 
+$\mathrm{Fib}(n+2)=\mathrm{Fib}(n)+\mathrm{Fib}(n+1)$. 
 Then we have: 
 
+$$
 \begin{align}
 \mathrm{Fib}(n+2) 
   &= \mathrm{Fib}(n) + \mathrm{Fib}(n+1) \\
@@ -505,9 +525,11 @@ Then we have:
   &= \left(\varphi^n(1+\varphi) - \psi^n(1+\psi)\right)
     \cdot \frac{1}{\sqrt{5}}
 \end{align}
+$$
 
 But observe:
 
+$$
 \begin{align}
 1+\varphi 
   &= 1 + \frac{1+\sqrt{5}}{2} \\
@@ -521,9 +543,11 @@ But observe:
 \implies 1+\varphi
   &= \varphi^2
 \end{align}
+$$
 
 Similarly, we have: 
 
+$$
 \begin{align}
 1+\psi 
   &= 1 + \frac{1-\sqrt{5}}{2} \\
@@ -537,9 +561,11 @@ Similarly, we have:
 \implies 1+\psi 
   &= \psi^2
 \end{align}
+$$
 
 So we have: 
 
+$$
 \begin{align}
 \mathrm{Fib}(n+2) 
   &= \left(\varphi^n(1+\varphi) - \psi^n(1+\psi)\right)
@@ -549,10 +575,11 @@ So we have:
 \implies \mathrm{Fib}(n+2) 
   &= \frac{\varphi^{n+2} - \psi^{n+2}}{\sqrt{5}}
 \end{align}
+$$
 
-So if \(\mathrm{Fib}(n)=(\varphi^n+\psi^n)/\sqrt{5}\) and 
-\(\mathrm{Fib}(n+1) = (\varphi^{n+1}+\psi^{n+1})/\sqrt{5}\) 
-then \(\mathrm{Fib}(n+2) = (\varphi^{n+2}+\psi^{n+2})/\sqrt{5}\). 
+So if $\mathrm{Fib}(n)=(\varphi^n+\psi^n)/\sqrt{5}$ and 
+$\mathrm{Fib}(n+1) = (\varphi^{n+1}+\psi^{n+1})/\sqrt{5}$ 
+then $\mathrm{Fib}(n+2) = (\varphi^{n+2}+\psi^{n+2})/\sqrt{5}$. 
 This completes the inductive step, and proves the 
 Exercise 1.13.a Lemma. 
 
@@ -562,29 +589,34 @@ Exercise 1.13.a Lemma.
 
 #### Exercise 1.13.b Lemma 
 
-If \(r \in \mathbb{R}\) and \(k \in \mathbb{Z}\) and 
-\(\left|k-r\right| \lt \frac{1}{2}\), then \(k\) is the closest 
-integer to \(r\).
+If $r \in \mathbb{R}$ and $k \in \mathbb{Z}$ and 
+$\left|k-r\right| \lt \frac{1}{2}$, then $k$ is the closest 
+integer to $r$.
 
 ##### Proof of Exercise 1.13.b Lemma
 
-###### Case \(k \gt r\)
+###### Case $k \gt r$
 
-If \(k \gt r\) then \(|k-r| = k-r\). From premise 
-\(k-r \lt \frac{1}{2}\). Consider some arbitrary \(l\in\mathbb{Z}\) 
-where \(l \gt 0\). 
+If $k \gt r$ then $|k-r| = k-r$. From premise 
+$k-r \lt \frac{1}{2}$. Consider some arbitrary $l\in\mathbb{Z}$ 
+where $l \gt 0$. 
 
-Since \(k \gt r \implies |k-r| = k-r\), and since 
-\(|k-r| < \frac{1}{2}\), we have \(k-r < \frac{1}{2}\). 
-Then we see \(k-\frac{1}{2} \lt r\). Then since \(l \gt 0\), 
+Since $k \gt r \implies |k-r| = k-r$, and since 
+$|k-r| < \frac{1}{2}$, we have $k-r < \frac{1}{2}$. 
+Then we see $k-\frac{1}{2} \lt r$. Then since $l \gt 0$, 
 we have: 
 
-\[ k \gt r \gt k - \frac{1}{2} \gt k-1 \geq k-l \]
+$$
+ k \gt r \gt k - \frac{1}{2} \gt k-1 \geq k-l 
+$$
 
-\[\therefore k \gt r \gt k-l\]
+$$
+\therefore k \gt r \gt k-l
+$$
 
-Then consider \(|r - (k-l)|\). Since \(r > k-l\), we have: 
+Then consider $|r - (k-l)|$. Since $r > k-l$, we have: 
 
+$$
 \begin{align}
 |r - (k-l)| 
   &= r - (k-l) \\
@@ -592,67 +624,85 @@ Then consider \(|r - (k-l)|\). Since \(r > k-l\), we have:
 |r - (k-l)| 
   &= l - (k - r)
 \end{align}
+$$
 
-But recall \(k-r \lt \frac{1}{2}\), then: 
+But recall $k-r \lt \frac{1}{2}$, then: 
 
+$$
 \begin{align}
 (k-r) &\lt \frac{1}{2} \\
 -(k-r) &\gt -\frac{1}{2} \\
 l-(k-r) &\gt l-\frac{1}{2}
 \end{align}
+$$
 
 Thus: 
 
-\[
+$$
+
   |r-(k-l)| = l-(k-r) \gt l-\frac{1}{2} 
   \geq 1-\frac{1}{2} = \frac{1}{2}
-\]
-\[
-  \therefore |r-(k-l)| > \frac{1}{2}
-\]
 
-So \(k-l\) is no closer to \(r\) than \(k\), since 
-\(|k-r|=|r-k|\lt\frac{1}{2}<|r-(k-l)|\). Since \(l\) is an 
-arbitrary integer and \(l \gt 0\), we see that \(k-l\) can be 
-any integer smaller than \(k\). Thus we have shown that all 
-integers smaller than \(k\) is no closer to \(r\) than \(k\) 
+$$
+
+$$
+
+  \therefore |r-(k-l)| > \frac{1}{2}
+
+$$
+
+So $k-l$ is no closer to $r$ than $k$, since 
+$|k-r|=|r-k|\lt\frac{1}{2}<|r-(k-l)|$. Since $l$ is an 
+arbitrary integer and $l \gt 0$, we see that $k-l$ can be 
+any integer smaller than $k$. Thus we have shown that all 
+integers smaller than $k$ is no closer to $r$ than $k$ 
 is. 
 
-Then let us consider \(k+l\). We see \(k+l \gt k \gt r\) so: 
+Then let us consider $k+l$. We see $k+l \gt k \gt r$ so: 
 
-\[
+$$
+
   |(k+l)-r| = (k+l)-r = (k-r)+l \geq (k-r)+1 \gt 0+1 \gt \frac{1}{2}
-\]
-\[
+
+$$
+
+$$
+
   \therefore |(k+l)-r|>\frac{1}{2}
-\]
 
-So \(k+l\) is also no closer to \(r\) than \(k\) since 
-\(|k-r|=k-r \lt \frac{1}{2} \lt |(k+l)-r|\). Since \(k+l\) 
-can be any arbitrary integer larger than \(k\), we see that 
-all integers greater than \(k\) are no closer to \(r\) than 
-\(k\). Altogether, we see that if \(k \gt r\) and 
-\(|k-r|\lt \frac{1}{2}\), then \(k\) is the closest integer to 
-\(r\). This proves the proposition for this case.
+$$
 
-###### Case \(r > k\)
+So $k+l$ is also no closer to $r$ than $k$ since 
+$|k-r|=k-r \lt \frac{1}{2} \lt |(k+l)-r|$. Since $k+l$ 
+can be any arbitrary integer larger than $k$, we see that 
+all integers greater than $k$ are no closer to $r$ than 
+$k$. Altogether, we see that if $k \gt r$ and 
+$|k-r|\lt \frac{1}{2}$, then $k$ is the closest integer to 
+$r$. This proves the proposition for this case.
 
-We still have \(|k-r|=|r-k|\lt\frac{1}{2}\) from our premise. 
-Consider again \(l\in\mathbb{Z}\) where \(l\gt 0\). Then for 
-\(k+l\), we see that: 
+###### Case $r > k$
 
-\[
+We still have $|k-r|=|r-k|\lt\frac{1}{2}$ from our premise. 
+Consider again $l\in\mathbb{Z}$ where $l\gt 0$. Then for 
+$k+l$, we see that: 
+
+$$
+
   |k-r| = |r-k| = r-k \lt \frac{1}{2} \implies r \lt k + \frac{1}{2}
-\]
+
+$$
 
 Thus: 
 
-\[
+$$
+
   k+l \geq k+1 \gt k+\frac{1}{2} \gt r \gt k \implies k+l\gt r\gt k
-\]
 
-Then consider \(|(k+l)-r|\). Since \(k+l \gt r\), we have: 
+$$
 
+Then consider $|(k+l)-r|$. Since $k+l \gt r$, we have: 
+
+$$
 \begin{align}
 |(k+l)-r|
   &= (k+l) - r\\
@@ -660,48 +710,61 @@ Then consider \(|(k+l)-r|\). Since \(k+l \gt r\), we have:
 |(k+l)-r|
   &= l-(r-k) \\
 \end{align}
+$$
 
-But recall \(r-k\lt \frac{1}{2}\), then:
+But recall $r-k\lt \frac{1}{2}$, then:
 
+$$
 \begin{align}
   r-k &\lt \frac{1}{2} \\
   -(r-k) &\gt -\frac{1}{2} \\
   l-(r-k) &\gt l-\frac{1}{2}
 \end{align}
+$$
 
 Thus:
 
-\[
+$$
+
 |(k+l)-r| = l-(r-k) \gt l-\frac{1}{2} \gt 1-\frac{1}{2} \gt \frac{1}{2}
-\]
-\[
+
+$$
+
+$$
+
 \therefore |(k+l)-r| \gt \frac{1}{2}
-\]
 
-So \(k+l\) is no closer to \(r\) than \(k\), since 
-\(|k-r|=|r-k| \lt \frac{1}{2} \lt |(k+l)-r|\). Again since \(l\) is an 
-arbitrary integer and \(l\gt 0\), we see that \(k+l\) can be any 
-integer larger than \(k\). Thus we have shown that in case of \(r\gt k\), 
-no integer larger than \(k\) are closer to \(r\) than \(k\).
+$$
 
-Then let us consider \(k-l\). We see \(r \gt k \gt k-l\) so: 
+So $k+l$ is no closer to $r$ than $k$, since 
+$|k-r|=|r-k| \lt \frac{1}{2} \lt |(k+l)-r|$. Again since $l$ is an 
+arbitrary integer and $l\gt 0$, we see that $k+l$ can be any 
+integer larger than $k$. Thus we have shown that in case of $r\gt k$, 
+no integer larger than $k$ are closer to $r$ than $k$.
 
-\[
+Then let us consider $k-l$. We see $r \gt k \gt k-l$ so: 
+
+$$
+
   |(k-l)-r| = r-(k-l) = (r-k)+l \geq (r-k)+1 \gt 0+1 \gt \frac{1}{2}
-\]
-\[
-  \therefore |(k-l)-r| \gt \frac{1}{2}
-\]
 
-So similarly \(k-l\) is no closer to \(r\) than \(k\) since 
-\(|k-r|=r-k \lt \frac{1}{2} \lt |(k-l)-r|\). Since \(k-l\) 
-can be any arbitrary integer smaller than \(k\), we see that all 
-integers smaller than \(k\) are no closer to \(r\) than \(k\). Altogether 
-we see that if \(r \gt k\) and \(|k-r|\lt\frac{1}{2}\), then \(k\) is 
-the closest integer to \(r\). This proves the proposition in this case. 
+$$
+
+$$
+
+  \therefore |(k-l)-r| \gt \frac{1}{2}
+
+$$
+
+So similarly $k-l$ is no closer to $r$ than $k$ since 
+$|k-r|=r-k \lt \frac{1}{2} \lt |(k-l)-r|$. Since $k-l$ 
+can be any arbitrary integer smaller than $k$, we see that all 
+integers smaller than $k$ are no closer to $r$ than $k$. Altogether 
+we see that if $r \gt k$ and $|k-r|\lt\frac{1}{2}$, then $k$ is 
+the closest integer to $r$. This proves the proposition in this case. 
 
 Given the above two cases are proven, Exercise 1.13.b Lemma is now proved. 
-The case of \(k=r\) is trivial.
+The case of $k=r$ is trivial.
 
 (Q.E.D.)
 
@@ -710,6 +773,7 @@ The case of \(k=r\) is trivial.
 We can use the lemmae to prove proposition for Exercise 1.13. 
 By Exercise 1.13.a lemme, notice that: 
 
+$$
 \begin{align}
 \mathrm{Fib}(n) 
   &= \frac{\varphi^n - \psi^n}{\sqrt{5}} \\
@@ -720,10 +784,12 @@ By Exercise 1.13.a lemme, notice that:
 \frac{\left|\psi\right|^n}{\sqrt{5}}
   &= \left|\frac{\varphi^n}{\sqrt{5}} - \mathrm{Fib}(n)\right|\\
 \end{align}
+$$
 
-Since \(\sqrt{5} \gt 1\), we know \(1-\sqrt{5} \lt 0\), so 
-\(|1-\sqrt{5}| = \sqrt{5}-1\). Observe that: 
+Since $\sqrt{5} \gt 1$, we know $1-\sqrt{5} \lt 0$, so 
+$|1-\sqrt{5}| = \sqrt{5}-1$. Observe that: 
 
+$$
 \begin{align}
 9 &\gt 5 \\
 \sqrt{9} &\gt \sqrt{5} \\
@@ -735,18 +801,22 @@ Since \(\sqrt{5} \gt 1\), we know \(1-\sqrt{5} \lt 0\), so
 1 &\gt |\psi| \\
 1^n = 1 &\gt |\psi|^n
 \end{align}
+$$
 
 Now observe that: 
 
+$$
 \begin{align}
 4 &\lt 5 \\
 \sqrt{4} &\lt \sqrt{5} \\
 \frac{1}{\sqrt{4}} &\gt \frac{1}{\sqrt{5}} \\
 \frac{1}{2} &\gt \frac{1}{\sqrt{5}}
 \end{align}
+$$
 
 Then: 
 
+$$
 \begin{align}
 \frac{1}{2} \cdot 1
   &\gt \frac{1}{\sqrt{5}} \cdot |\psi|^n \\
@@ -759,10 +829,11 @@ Then:
 \frac{1}{2} 
   &\gt \left|\mathrm{Fib}(n) - \frac{\varphi^n}{\sqrt{5}}\right|
 \end{align}
+$$
 
-Then by Exercise 1.13.b lemma using \(r:=\frac{\varphi^n}{\sqrt{5}}\) and 
-\(k:=\mathrm{Fib}(n)\), we see that \(\mathrm{Fib}(n)\) is indeed the 
-closest integer to \(\frac{\varphi^n}{\sqrt{5}}\). This completes the 
+Then by Exercise 1.13.b lemma using $r:=\frac{\varphi^n}{\sqrt{5}}$ and 
+$k:=\mathrm{Fib}(n)$, we see that $\mathrm{Fib}(n)$ is indeed the 
+closest integer to $\frac{\varphi^n}{\sqrt{5}}$. This completes the 
 proof for the proposition of Exercise 1.13.
 
 (Q.E.D.)
@@ -775,12 +846,14 @@ See [separate file showing tree for `(cc 11 5)`](./Exercise_Source/E1_14.md).
 
 ## Growth of `(cc amount kind-of-coin)` in Steps
 
-Let \(T(n, k)\) be the steps it takes for particular `(cc n k)` to complete 
-its process, where \(n \in \mathbb{Z}\) and \(n \geq 0\) represents the 
-currency amount, and \(k \in \mathbb{Z}\), \(k \geq 1\) is some kind of coin 
-with face value \(v_k \geq 1\). Then: 
+Let $T(n, k)$ be the steps it takes for particular `(cc n k)` to complete 
+its process, where $n \in \mathbb{Z}$ and $n \geq 0$ represents the 
+currency amount, and $k \in \mathbb{Z}$, $k \geq 1$ is some kind of coin 
+with face value $v_k \geq 1$. Then: 
 
-\[T(n, k) = \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} T(n-iv_k, k-1)\]
+$$
+T(n, k) = \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} T(n-iv_k, k-1)
+$$
 
 To see this, consider the recursion tree of `(cc n k)`:
 
@@ -804,21 +877,21 @@ To see this, consider the recursion tree of `(cc n k)`:
 
 We see that from the initial call, two other recursive calls to `cc` are made. 
 One results in a branch that decrements the face value of the coin, which will 
-terminate in \(T(n, k-1)\) step by definition. The other results in a branch 
+terminate in $T(n, k-1)$ step by definition. The other results in a branch 
 that decrements the change amount, with the change amount initially decreased 
-to \(n-v_k\). Then the change amount decreasing branch continues the pattern: 
-first making a call that will end in some \(T(m, k-1)\) step with \(m\) 
+to $n-v_k$. Then the change amount decreasing branch continues the pattern: 
+first making a call that will end in some $T(m, k-1)$ step with $m$ 
 depending on the decreased change amount; secondly making a call that further 
 decreases the change amount. In other words, for each time the change amount 
-decrements by \(v_k\), \(T(m, k-1)\) steps are to the process, and this 
+decrements by $v_k$, $T(m, k-1)$ steps are to the process, and this 
 will continue until the change amount is decremented to zero or a negative 
-integer, which will be achieved in \(\mathrm{ceiling}(n/v_k)\) depths. 
+integer, which will be achieved in $\mathrm{ceiling}(n/v_k)$ depths. 
 Altogether, the steps involved in the process is the sum mentioned above. 
 
 Thus, the steps it takes for `(cc n k)` to finish running can be expressed 
-as a sum, the number of terms in the sum depends on the amount \(n\) and 
-coin face value \(v_k = v(k)\), and the terms themselves are mathematical 
-functions of \(n\), \(v_k\) and \(k-1\), namely \(T(n-iv_k, k-1)\). Therefore, 
+as a sum, the number of terms in the sum depends on the amount $n$ and 
+coin face value $v_k = v(k)$, and the terms themselves are mathematical 
+functions of $n$, $v_k$ and $k-1$, namely $T(n-iv_k, k-1)$. Therefore, 
 if we know the steps it takes for `cc` to complete for the lowest denomination 
 coin, then the steps it takes for `cc` with larger denominations to complete 
 will also be known. 
@@ -842,23 +915,26 @@ Given this is true, consider the following:
                            1
 ```
 
-The above assumes \(v_1 = 1\), ie the lowest denomination \(k=1\) represents 
+The above assumes $v_1 = 1$, ie the lowest denomination $k=1$ represents 
 a penny. We see that the branch decrementing the coin face immediately returns 
-\(0\) in one step. Meanwhile, the other branch decrementing the change amount 
+$0$ in one step. Meanwhile, the other branch decrementing the change amount 
 decreases by one and goes on to make two more recursive calls, one again 
-immedediately terminating in \(1\) step by returning \(0\), the other making 
-further calls with amount decreased by \(1\). The pattern continues until 
-the amount is decremented to \(n-n = 0\), in which case \(1\) is returned. 
+immedediately terminating in $1$ step by returning $0$, the other making 
+further calls with amount decreased by $1$. The pattern continues until 
+the amount is decremented to $n-n = 0$, in which case $1$ is returned. 
 So the total steps involved for `(cc n 1)` is: 
 
+$$
 \begin{align}
 T(n, 1) &= \left(\sum_{i=0}^n 2\right) - 1 \\
 T(n, 1) &= 2(n + 1) - 1 \\
 T(n, 1) &= 2n + 1
 \end{align}
+$$
 
 Then, considering the sum previously, we immediately have the following: 
 
+$$
 \begin{align}
 T(n, k) &= \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} T(n-iv_k, k-1) \\
 T(n, 2) &= \sum_{i=0}^{\mathrm{ceiling}(n/v_2)} T(n-iv_2, 2-1) \\
@@ -868,24 +944,33 @@ T(n, 2) &= \sum_{i=0}^{\mathrm{ceiling}(n/v_2)} T(n-iv_2, 2-1) \\
   &\approx \frac{2n^2}{v_2} + \sum_{i=0}^{\mathrm{ceiling}(n/v_2)} 2iv_2 + 1 \\
   &\approx \frac{2n^2}{v_2} + (1 + (2v_2 + 1) + \dots + (2(n-1)v_2 + 1) + (2nv_2 + 1))
 \end{align}
+$$
 
-We see that the dominating term above is proportional to \(n^2\). So if two 
-kinds of coins are present, the computation steps grows in \(O(n^2)\). In 
+We see that the dominating term above is proportional to $n^2$. So if two 
+kinds of coins are present, the computation steps grows in $O(n^2)$. In 
 fact we see for each additional kind of coin, the process above can be 
 repeated. That is:
 
 ### Exercise 1.14 Proposition
 
 If we have: 
-\[T(n,k)=C_k n^k + \Theta(n^{k-1})=\Theta(n^{k+1})\] 
-... for constants \(C_k\), then: 
-\[T(n,k+1)=C_{k+1}n^{k+1}+\Theta(n^k)=\Theta(n^{k+1})\]
+
+$$
+T(n,k)=C_k n^k + \Theta(n^{k-1})=\Theta(n^{k+1})
+$$
+ 
+... for constants $C_k$, then: 
+
+$$
+T(n,k+1)=C_{k+1}n^{k+1}+\Theta(n^k)=\Theta(n^{k+1})
+$$
 
 #### Proof
 
-Given the premise in the proposition, and the previous result for \(T(n, k)\), 
+Given the premise in the proposition, and the previous result for $T(n, k)$, 
 we have:
 
+$$
 \begin{align}
 T(n, k+1)
   &= \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} T(n-iv_k, k) \\
@@ -899,12 +984,13 @@ T(n, k+1)
   &= \frac{C_k}{v_k} n^{k+1} + \Theta(n^k) \\
   &= \Theta(n^{k+1})
 \end{align}
+$$
 
 (Q.E.D)
 
-Given proposition E1.14.1, and the fact that \(T(n,1)=2n+1=\Theta(n^1)\), we 
-see that the order of growth for `cc` in steps is in \(\Theta(n^k)\) for 
-however many \(k\) kinds of coins there are.
+Given proposition E1.14.1, and the fact that $T(n,1)=2n+1=\Theta(n^1)$, we 
+see that the order of growth for `cc` in steps is in $\Theta(n^k)$ for 
+however many $k$ kinds of coins there are.
 
 ## Growth of `(cc amount kind-of-coin)` in Space
 
@@ -967,27 +1053,27 @@ is evaluated, namely `(cc n-2 1)`. This process continues until
                                                    0
 ```
 
-We see that the depth below `(cc n 1)` to `(cc 0 1)` is \(n\), as the 
+We see that the depth below `(cc n 1)` to `(cc 0 1)` is $n$, as the 
 `amount` argument decrements once per depth until `(cc 0 1)`. We also 
-see the depth from `(cc n k)` to `(cc n 1)` to be \(k\), as the 
+see the depth from `(cc n k)` to `(cc n 1)` to be $k$, as the 
 `kinds-of-coin` argument also decrements once per depth. Altogether the 
 deferred operations from the initial call of `(cc n k)` to `(cc 0 1)` creates 
-a depth of \(n+k\). We also see that this is the maximum depth reached by the 
+a depth of $n+k$. We also see that this is the maximum depth reached by the 
 function. Other operations in stack after the branch of `(cc n k)`-to-
 `(cc n 1)`-to-`(cc 0 1)` were deferred at a higher depth of `(cc n l)` where 
-\(l \in \mathbb{Z}\) and \(1 \lt l \lt k\). Subsequently the other 
+$l \in \mathbb{Z}$ and $1 \lt l \lt k$. Subsequently the other 
 recursive calls decreementing change amount should terminate quicker than 
 than `(cc n 1)` as other coin faces are greater. Therefore they would 
 have less deferred operations within, and would not require more space 
 than the `(cc n k)`-to-`(cc n 1)`-to-`(cc 0 1)` branch. Thus `(cc n k)` 
-has a max depth of \(n+k\) and the space requirement has order of growth 
-in \(\Theta(n)\). 
+has a max depth of $n+k$ and the space requirement has order of growth 
+in $\Theta(n)$. 
 
 ## Summary for `(cc n k)`
 
 We see that `(cc n k)` grows exponentially in steps with order of 
-\(\Theta(n^k)\), and `(cc n k)` grows linearly in space with order 
-of \(\Theta(n)\). 
+$\Theta(n^k)$, and `(cc n k)` grows linearly in space with order 
+of $\Theta(n)$. 
 
 # Exercise 1.15
 
@@ -1010,8 +1096,8 @@ Consider:
 (p (p (p (p (p 0.05)))))
 ```
 
-The recursive calls stop when \(12.15\) gets divided \(3.0\) for \(5\) times 
-into \(0.05 \lt 0.1\). Therefore procedure `p` is applied \(5\) times when 
+The recursive calls stop when $12.15$ gets divided $3.0$ for $5$ times 
+into $0.05 \lt 0.1$. Therefore procedure `p` is applied $5$ times when 
 `(sine 12.15)` is evaluated. 
 
 ## 1.15.b
@@ -1019,10 +1105,11 @@ into \(0.05 \lt 0.1\). Therefore procedure `p` is applied \(5\) times when
 ### Growth of `(sine a)` in Space
 
 A deferred procedure of `p` is produced once per division of the angle until 
-it is less than or equal to \(0.1\) radians. Let \(n\) be the number of times 
-\(a\) must be divided by \(3\) until the result is less than or equal to 
-\(0.1\). Thus:
+it is less than or equal to $0.1$ radians. Let $n$ be the number of times 
+$a$ must be divided by $3$ until the result is less than or equal to 
+$0.1$. Thus:
 
+$$
 \begin{align}
 \frac{a}{3^n} &\leq 0.1 \\
 \frac{a}{0.1} &\leq 3^n \\
@@ -1033,21 +1120,22 @@ it is less than or equal to \(0.1\) radians. Let \(n\) be the number of times
 c_1 \mathrm{ln}(a)- c_0 &\leq n \\
 \mathrm{ceiling}\left(c_1 \mathrm{ln}(a)- c_0\right) &= n
 \end{align}
+$$
 
-Since it takes \(c_1 \mathrm{ln}(a) + c_0\) divisions (ceiled to integer), 
+Since it takes $c_1 \mathrm{ln}(a) + c_0$ divisions (ceiled to integer), 
 the same number of deferred operations are the same, resulting in space 
-requirement growing in \(\Theta(\mathrm{ln}(a))\). 
+requirement growing in $\Theta(\mathrm{ln}(a))$. 
 
 ### Growth of `(sine a)` in Steps
 
-For some angle \(a\), the `sine` procedure will first make recursive calls 
+For some angle $a$, the `sine` procedure will first make recursive calls 
 to itself, generating deferred `p` procedures in the process as mentioned. 
-The recursive calls then stop when the angle becomes less than \(0.1\), 
+The recursive calls then stop when the angle becomes less than $0.1$, 
 and the chain of deferred `p` is evaluated. Since each `sine` call generates 
 at most one deferred `p`, and each `p` takes a constant number of steps to 
 evaluate, the order of growth in steps is proportional to the number of 
 deferred `p`. In other words, the order of growth in steps is the same 
-as the order of growth in space, namely \(\Theta(\mathrm{ln}(a))\).
+as the order of growth in space, namely $\Theta(\mathrm{ln}(a))$.
 
 # Exercise 1.16
 
@@ -1055,8 +1143,8 @@ See [Exercise 1.16 source file code](./Exercise_Source/E1_16.scm). The code
 makes use of the *invariant quantity* suggested by the problem statement via 
 the following:
 
-+ \(n\) odd then \(b^n = a \cdot b^{n-1}\), \(a=b\).
-+ \(n\) even then \(b^n = a \cdot b^{n}\), \(a=1\).
++ $n$ odd then $b^n = a \cdot b^{n-1}$, $a=b$.
++ $n$ even then $b^n = a \cdot b^{n}$, $a=1$.
 
 ```scheme
 1 ]=> ;
@@ -1125,8 +1213,9 @@ the following:
 
 ## Exercise 1.19 Proposition
 
-Given transformation \(T_{pq}\) where:
+Given transformation $T_{pq}$ where:
 
+$$
 \begin{align}
 T_{pq}(a, b)
   &= {\begin{pmatrix} 
@@ -1134,16 +1223,20 @@ T_{pq}(a, b)
     bp + aq 
     \end{pmatrix}} \newline
 \end{align}
+$$
 
-Let \(T^2_{p'q'} = T_{pq}(T_{pq}(a, b))\), \(p':=p^2 + q^2\) and 
-\(q':=2pq + q^2\), then we have:
+Let $T^2_{p'q'} = T_{pq}(T_{pq}(a, b))$, $p':=p^2 + q^2$ and 
+$q':=2pq + q^2$, then we have:
 
-\[
+$$
+
   T^2_{pq}(a, b) := T_{pq}(T_{pq}(a, b)) = T_{p'q'}(a, b)
-\]
+
+$$
 
 ### Proof
 
+$$
 \begin{align}
 T_{pq}(a, b)
   &= {\begin{pmatrix} 
@@ -1173,6 +1266,7 @@ T^2_{pq}(a, b)
 T^2_{pq}(a, b)
   &= T_{p'q'}(a, b)
 \end{align}
+$$
 
 (Q.E.D.)
 
@@ -1487,23 +1581,25 @@ Writing out the evaluation for
 1000000000061 => t = 900000.0000000003
 1000000000063 => t = 879999.9999999999
 ```
-The expected order of growth is in \(\Theta(\sqrt{n})\). Therefore the 
-time \(t\) needed is \(t\approx c \sqrt{n}\). Let each trial we calcauted 
-have \(t_i \approx c \sqrt{n_i}\). Given each time our inputs increase 
-by a factor of \(10\), we have:
+The expected order of growth is in $\Theta(\sqrt{n})$. Therefore the 
+time $t$ needed is $t\approx c \sqrt{n}$. Let each trial we calcauted 
+have $t_i \approx c \sqrt{n_i}$. Given each time our inputs increase 
+by a factor of $10$, we have:
 
-\[\frac{t_j}{t_i} = \frac{c\sqrt{n_j}}{c\sqrt{n_i}} = \sqrt{\frac{n_j}{n_i}}=\sqrt{10}\]
+$$
+\frac{t_j}{t_i} = \frac{c\sqrt{n_j}}{c\sqrt{n_i}} = \sqrt{\frac{n_j}{n_i}}=\sqrt{10}
+$$
 
 So we expect that the ratio of computation times between successive trials 
-be be \(\sqrt{10}\approx 3.16\). 
+be be $\sqrt{10}\approx 3.16$. 
 
-| Trial | Input range | Average time for first three primes | \(\frac{t_i}{t_{i-1}}\) |
+| Trial | Input range | Average time for first three primes | $\frac{t_i}{t_{i-1}}$ |
 | --- | --- | --- | --- |
 | 1 | 1000000000 | 30000.00000000000233333333  | --- |
-| 2 | 10000000000 | 89999.99999999998333333333 | \(\frac{90000}{30000} \approx 3.00 \) |
-| 3 | 100000000000 | 283333.33333333341333333333 | \(\frac{283333}{90000} \approx 3.15 \) |
-| 4 | 1000000000000 | 883333.33333333343333333333 | \(\frac{883333}{283333} \approx 3.12 \) |
-| **Average** | --- | --- | \(3.09\) |
+| 2 | 10000000000 | 89999.99999999998333333333 | $\frac{90000}{30000} \approx 3.00 $ |
+| 3 | 100000000000 | 283333.33333333341333333333 | $\frac{283333}{90000} \approx 3.15 $ |
+| 4 | 1000000000000 | 883333.33333333343333333333 | $\frac{883333}{283333} \approx 3.12 $ |
+| **Average** | --- | --- | $3.09$ |
 
 Overall the time ratios between trials are similar to the expected value. 
 Since the order of growth of real program running time is the same as the 
@@ -1514,13 +1610,13 @@ proportionality.
 
 + [Exercise 1.23 source, using the incrementing proecedure suggested by text.](./Exercise_Source/E1_23a.scm)
 + Note: in `smallest-divisor`, it is pointless to test even numbers larger 
-than \(2\), because either: 
-  + The number is divisible by \(2\), in which case the smallest divisor 
-  for the number is \(2\) (since \(2\) is the smallest integer that is 
-  also larger than \(1\)).
-  + The number is not divisible by \(2\), therefore it cannot be divisible 
-  by any other larger even numbers, since even numbers are \(2\cdot k\) for 
-  some integer \(k\) by definition. 
+than $2$, because either: 
+  + The number is divisible by $2$, in which case the smallest divisor 
+  for the number is $2$ (since $2$ is the smallest integer that is 
+  also larger than $1$).
+  + The number is not divisible by $2$, therefore it cannot be divisible 
+  by any other larger even numbers, since even numbers are $2\cdot k$ for 
+  some integer $k$ by definition. 
 
 ```scheme
 
@@ -1644,17 +1740,17 @@ than \(2\), because either:
 ;Unspecified return value
 ```
 
-| Trial | Input range | Average time for first three primes OLD | Average time for the first three primes NEW | \(\frac{t_{\mathrm{new}}}{t_{\mathrm{old}}}\) |
+| Trial | Input range | Average time for first three primes OLD | Average time for the first three primes NEW | $\frac{t_{\mathrm{new}}}{t_{\mathrm{old}}}$ |
 | --- | --- | --- | --- | --- |
-| 1 | 1000000000 | 30000.00000000000233333333  | 20000.00000000000466666667 | \(66.7\%\) |
-| 2 | 10000000000 | 89999.99999999998333333333 | 56666.66666666667833333333 | \(63.0\%\) |
-| 3 | 100000000000 | 283333.33333333341333333333 | 183333.33333333338333333333 | \(64.7\%\) |
-| 4 | 1000000000000 | 883333.33333333343333333333 | 570000.00000000016666666667 | \(64.5\%\) |
-| **Average** | --- | --- | --- | \(64.73\%\) |
+| 1 | 1000000000 | 30000.00000000000233333333  | 20000.00000000000466666667 | $66.7\%$ |
+| 2 | 10000000000 | 89999.99999999998333333333 | 56666.66666666667833333333 | $63.0\%$ |
+| 3 | 100000000000 | 283333.33333333341333333333 | 183333.33333333338333333333 | $64.7\%$ |
+| 4 | 1000000000000 | 883333.33333333343333333333 | 570000.00000000016666666667 | $64.5\%$ |
+| **Average** | --- | --- | --- | $64.73\%$ |
 
 
-We see that the improvement in speed is closer to \(35.3\%\) rather than the 
-expected \(50\%\). The `next-divisor` function (named `next` in the text) 
+We see that the improvement in speed is closer to $35.3\%$ rather than the 
+expected $50\%$. The `next-divisor` function (named `next` in the text) 
 adds the following steps:
 
 + The call to `next-divisor`
@@ -1793,13 +1889,13 @@ The results are as follows:
 ;Unspecified return value
 ```
 
-| Trial | Input range | Average time for first three primes OLD | Average time for the first three primes NEW IMPROVED| \(\frac{t_{\mathrm{new}}}{t_{\mathrm{old}}}\) |
+| Trial | Input range | Average time for first three primes OLD | Average time for the first three primes NEW IMPROVED| $\frac{t_{\mathrm{new}}}{t_{\mathrm{old}}}$ |
 | --- | --- | --- | --- | --- |
-| 1 | 1000000000 | 30000.00000000000233333333  | 13333.333333333332 | \(44.4\%\) |
-| 2 | 10000000000 | 89999.99999999998333333333 | 63333.33333333335 | \(70.4\%\) |
-| 3 | 100000000000 | 283333.33333333341333333333 | 173333.33333333333333333333 | \(61.2\%\) |
-| 4 | 1000000000000 | 883333.33333333343333333333 | 433333.3333333333 | \(49.1\%\) |
-| **Average** | --- | --- | --- | \(56.3\%\) |
+| 1 | 1000000000 | 30000.00000000000233333333  | 13333.333333333332 | $44.4\%$ |
+| 2 | 10000000000 | 89999.99999999998333333333 | 63333.33333333335 | $70.4\%$ |
+| 3 | 100000000000 | 283333.33333333341333333333 | 173333.33333333333333333333 | $61.2\%$ |
+| 4 | 1000000000000 | 883333.33333333343333333333 | 433333.3333333333 | $49.1\%$ |
+| **Average** | --- | --- | --- | $56.3\%$ |
 
 The improved `smallest-divisor` in the latest iteration immeidately returns 
 `2` if `n` is even, so that the `(= test-divisor 2)` test is not performed for 
@@ -1813,11 +1909,12 @@ device or more fundamental workings of Scheme.
 
 # Exercise 1.24
 
-The expected order of growth using Fermat's test is in \(\Theta(\log{n})\). 
-Therefore time \(t\approx c\log{n}\). Let each trial have 
-\(t_i\approx c\log{n_i}\). Given each time our inputs increase by a factor 
-of \(10\), we have:
+The expected order of growth using Fermat's test is in $\Theta(\log{n})$. 
+Therefore time $t\approx c\log{n}$. Let each trial have 
+$t_i\approx c\log{n_i}$. Given each time our inputs increase by a factor 
+of $10$, we have:
 
+$$
 \begin{align}
   \frac{t_j}{t_i} 
     &= \frac{c\log{n_j}}{c\log{n_i}} \\
@@ -1826,9 +1923,10 @@ of \(10\), we have:
   \frac{t_j}{t_i} 
     &= \frac{\log{10}}{\log{n_i}} + 1 
 \end{align}
+$$
 
 In fact, this suggests that for very large inputs, the ratio of computation 
-times between successive trials becomes \(1\). To test our estimation, the 
+times between successive trials becomes $1$. To test our estimation, the 
 procedures were [modified as suggested by the text to use Fermat's test](./Exercise_Source/E1_24.scm). 
 The timing test results are as follows:
 
@@ -1954,7 +2052,7 @@ The timing test results are as follows:
 ```
 Tabulating the results we have:
 
-| Trial | Input range | Average time for the first three primes | \({\left(\frac{t_j}{t_i}\right)}_{\mathrm{real}}\) | \(\frac{\log{10}}{\log{n_i}}+1\) |
+| Trial | Input range | Average time for the first three primes | ${\left(\frac{t_j}{t_i}\right)}_{\mathrm{real}}$ | $\frac{\log{10}}{\log{n_i}}+1$ |
 | --- | --- | --- | --- | --- |
 | 1 | 1000000000 | 40000 | --- | --- |
 | 2 | 10000000000 | 56666.6666666667 | 1.41666666666667 | 1.11111111111111 |
@@ -1963,16 +2061,16 @@ Tabulating the results we have:
 | Average | --- | --- | 1.07761437908497 | 1.1006734006734 |
 
 We notice that the average time ratio is close to the one predicted by our 
-calculation, and both are close to \(1\) at our relatively large input sizes. 
+calculation, and both are close to $1$ at our relatively large input sizes. 
 
 # Exercise 1.25
 
 To help test the validity of Alyssa's suggestion, 
 [the simpler `expmod` is written and renamed as `exp-mod-new`](./Exercise_Source/E1_25.scm). 
 Both procedures are used to calculate 
-\((1000^{1000003}\mod 1000003)\). Using Fermat's Little Theorem, and 
-the prime number \(1000003\), we know that 
-\((1000^{1000003}\mod 1000003) = (1000\mod 1000003) = 1000\). The 
+$(1000^{1000003}\mod 1000003)$. Using Fermat's Little Theorem, and 
+the prime number $1000003$, we know that 
+$(1000^{1000003}\mod 1000003) = (1000\mod 1000003) = 1000$. The 
 following are the outputs from our test:
 
 ```scheme
@@ -1995,7 +2093,7 @@ Time elapsed: 30.35
 We are able to confirm that both processes give the correct result. 
 However we clearly see that `expmod-new` uses much more time, while 
 the previous `expmod` has trivial runtime. By using the compatibility 
-of congruent modulo \(n\) with multiplication, the previous `expmod` 
+of congruent modulo $n$ with multiplication, the previous `expmod` 
 does not have to deal with numbers much larger than `m`, making 
 large inputs much easier to handle. Therefore while the implementation 
 is more nuanced, the previous `expmod` is superior overall.
@@ -2004,53 +2102,57 @@ is more nuanced, the previous `expmod` is superior overall.
 
 Procedure `expmod` grows in steps with increasing input due to its 
 recursive calls to itself, which are made continuously until the 
-initial `expnt` is reduced to zero. Let \(n\) be the initial 
+initial `expnt` is reduced to zero. Let $n$ be the initial 
 exponent. Since `expmod` use successive squaring to decrement the 
 exponent, the exponent is roughly halved each time. The number of 
-decrements \(k\) needed can can be determined as follows:
+decrements $k$ needed can can be determined as follows:
 
+$$
 \begin{align}
   \frac{n}{2^k} &= 1 \\
   n &= 2^k \\
   \log n &= k \log 2 \\
   \frac{\log n}{\log 2} &= k
 \end{align}
+$$
 
 In the initial `expmod`, the recursive calls for even exponents 
 are made as single arguments to `square`. This means `expmod` makes 
 at most one recursive call to itself per decrement in the exponent. 
 Assuming other parts of the procedure have constant steps, then 
-the total steps is approximately \(ck = c\frac{\log n}{\log 2}\), 
-hence why the original procedure has order of growth \(\Theta(\log n)\). 
+the total steps is approximately $ck = c\frac{\log n}{\log 2}$, 
+hence why the original procedure has order of growth $\Theta(\log n)$. 
 
 However, when Louis Reasoner modified the `expmod` procedure, he used 
 explicit multiplication `(* (expmod <...>) (expmod <...>))` instead 
 of `(square (expmod <...>))`. This means that even exponent cases 
 results in *two* recursive calls to `expmod`. For the worst cases 
-where \(n=2^l\), the procedure will have to make two recursive calls 
-for every decrement (save the last two at exponents of \(1\) and \(0\)). 
-In other words, there would by \(2^k\) recursive calls, since two 
-recursive calls are made per decrement. But we know \(k=\frac{\log n}{\log 2}\). 
+where $n=2^l$, the procedure will have to make two recursive calls 
+for every decrement (save the last two at exponents of $1$ and $0$). 
+In other words, there would by $2^k$ recursive calls, since two 
+recursive calls are made per decrement. But we know $k=\frac{\log n}{\log 2}$. 
 Therefore, the total recursive calls needed is:
 
+$$
 \begin{align}
   2^k 
     &= 2^{\frac{\log n}{\log 2}} \\
     &= 2^{\log_2 n} \\
     &= n
 \end{align}
+$$
 
-(Note: we made use of base change \(\log_2 n = \frac{\log n}{\log 2}\) 
+(Note: we made use of base change $\log_2 n = \frac{\log n}{\log 2}$ 
 formula above)
 
 So assuming constant steps per recursive calls, we will have 
-\(2^k c = nc \) steps, resulting in a new procedure with \(\Theta(n)\) 
+$2^k c = nc $ steps, resulting in a new procedure with $\Theta(n)$ 
 order of growth in steps. 
 
 # Exercise 1.27
 
 + [Exercise 1.27](./Exercise_Source/E1_27.scm), result shows Fermat test 
-returns true for all positive integers \(a\lt n\) if \(n\) is one of the 
+returns true for all positive integers $a\lt n$ if $n$ is one of the 
 Carmichael numbers.
 
 ```scheme
@@ -2077,20 +2179,24 @@ Carmichael numbers.
 
 + [Exercise 1.28](./Exercise_Source/E1_28.scm)
 + [Output from student defined `miller-rabin-all` test.](./Exercise_Source/E1_28_output.md)
-+ [Checking output against known primes from \(1\) to \(6601\).](./Exercise_Source/E1_28_checking.ods)
++ [Checking output against known primes from $1$ to $6601$.](./Exercise_Source/E1_28_checking.ods)
 + We see that the Miller-Rabin test indeed returns correct results for the 
 Carmichael numbers listed by the text.
 
 # Exercise 1.29
 
 + *Simpson's Rule*: 
+
+$$
 \begin{align}
   \int_{a}^{b} f(x) \,\mathrm{d}x 
     &= \frac{h}{3} 
       \left( y_0 + 4y_1 + 2y_2 + 4y_3 + 2y_4 + \dots + 2y_{n-2} + 4y_{n-1} + y_n \right) \\
 \end{align}
-  + Where \(h=(b-a)/n\) for some even integer \(n\) and \(y_i = f(a + ih)\). 
-  + As \(n \to \infty\), \(\mathrm{d}x \to 0\), approximation become 
+$$
+
+  + Where $h=(b-a)/n$ for some even integer $n$ and $y_i = f(a + ih)$. 
+  + As $n \to \infty$, $\mathrm{d}x \to 0$, approximation become 
   more accurate. 
 + [Exercise 1.29](./Exercise_Source/E1_29.scm)
 + The results show using Simpson's rule is much more accurate.
@@ -2348,9 +2454,10 @@ from `mit-scheme` using the defined `f` is:
 
 # Exercise 1.35
 
-We know that \(\varphi = \frac{1+\sqrt{5}}{2}\). Let 
-\(f(x)=1+\frac{1}{x}\), then: 
+We know that $\varphi = \frac{1+\sqrt{5}}{2}$. Let 
+$f(x)=1+\frac{1}{x}$, then: 
 
+$$
 \begin{align}
 f(\varphi) 
   &= 1 + \frac{1}{\varphi} \\
@@ -2364,8 +2471,9 @@ f(\varphi)
 f(\varphi) 
   &= \varphi
 \end{align}
+$$
 
-So we see \(f(\varphi)=\varphi\), so \(\varphi\) is a fixed point of \(f\). 
+So we see $f(\varphi)=\varphi$, so $\varphi$ is a fixed point of $f$. 
 
 ```scheme
 1 ]=> (define (f x) (+ 1.0 (/ 1.0 x)))
@@ -2375,53 +2483,64 @@ So we see \(f(\varphi)=\varphi\), so \(\varphi\) is a fixed point of \(f\).
 ;Value: 1.6180327868852458
 ```
 
-Calculation using `fixed-point` converges to expected value of \(\varphi\). 
+Calculation using `fixed-point` converges to expected value of $\varphi$. 
 
 # Exercise 1.36
 
-Reason why the solution to \(x^x = 1000\) can be obtained by solving a fixed 
+Reason why the solution to $x^x = 1000$ can be obtained by solving a fixed 
 point problem: 
 
+$$
 \begin{align}
 x^x &= c \\
 x \log x &= \log c \\
 x &= \frac{\log c}{\log x} 
 \end{align}
+$$
 
-We see that if we have \(f(x) = \frac{\log c}{\log x}\) then finding 
-fixed point where \(f(x) = x = \frac{\log c}{\log x}\) obtains solution 
-to original problem (\(c\) can be arbitrary number greater than \(1\), 
-e.g. \(1000\)). 
+We see that if we have $f(x) = \frac{\log c}{\log x}$ then finding 
+fixed point where $f(x) = x = \frac{\log c}{\log x}$ obtains solution 
+to original problem ($c$ can be arbitrary number greater than $1$, 
+e.g. $1000$). 
 
-Consider true solution \(x_t\), if we make guess \(x_i = x_t + \epsilon\) for 
-\(\epsilon \gt 0\), then we see \(x_t \lt x_t + \epsilon = x_i\). Since 
-\(\log\) increases monotonically, we know also: 
-\[\frac{\log c}{\log x_i}=\frac{\log c}{\log (x+\epsilon)} \lt \frac{\log c}{\log x} = x\]
+Consider true solution $x_t$, if we make guess $x_i = x_t + \epsilon$ for 
+$\epsilon \gt 0$, then we see $x_t \lt x_t + \epsilon = x_i$. Since 
+$\log$ increases monotonically, we know also: 
 
-Therefore the true solution is between our guess \(x_i\) and 
-\(f(x_i)=\frac{\log c}{\log x_i}\):
+$$
+\frac{\log c}{\log x_i}=\frac{\log c}{\log (x+\epsilon)} \lt \frac{\log c}{\log x} = x
+$$
 
-\[\frac{\log c}{\log x_i} \lt x_t \lt x_i\]
+Therefore the true solution is between our guess $x_i$ and 
+$f(x_i)=\frac{\log c}{\log x_i}$:
 
-On the other hand, if our guess is \(x_i' = x_t - \epsilon\), then by similar 
+$$
+\frac{\log c}{\log x_i} \lt x_t \lt x_i
+$$
+
+On the other hand, if our guess is $x_i' = x_t - \epsilon$, then by similar 
 calculations we would have:
 
-\[\frac{\log c}{\log x_i'} \gt x_t \gt x_i'\]
+$$
+\frac{\log c}{\log x_i'} \gt x_t \gt x_i'
+$$
 
-Therefore the true solution is again between the guess \(x_i'\) and 
-\(f(x_i')=\frac{\log c}{\log x_i'}\), except direction of inequality 
+Therefore the true solution is again between the guess $x_i'$ and 
+$f(x_i')=\frac{\log c}{\log x_i'}$, except direction of inequality 
 is reversed. Another way to see this is by using a simple 
 transformation similar to the book example. We can solve the following 
 average-damped fixed point problem to obtain the same solution: 
 
+$$
 \begin{align}
 2x &= \frac{\log c}{\log x} + x \\
 x &= \frac{1}{2}\left( \frac{\log c}{\log x} + x\right) \\
 x = g(x) &:= \frac{1}{2}\left( \frac{\log c}{\log x} + x\right) \\
 g(x) &= \frac{1}{2}(f(x) + x)
 \end{align}
+$$
 
-Translating both the undamped \(f\) and damped \(g\) into 
+Translating both the undamped $f$ and damped $g$ into 
 Scheme and [solve using `fixed-point`](./Exercise_Source/E1_36.scm) 
 gives following results: 
 
@@ -2487,32 +2606,36 @@ gives following results:
 
 It is clear that the average-damped function converges much faster. 
 Additionally the answers are indeed good approximations to 
-\(x^x = 1000\).
+$x^x = 1000$.
 
 # Exercise 1.37
 
 If the infinite continued fraction: 
 
-\[
+$$
+
 f=\frac{N_1}{D_1 + \frac{N_2}{D_2 + \frac{N_3}{D_3 + \dots}}}
-\]
 
-... has \(N_i = D_i = 1\), then \(f = \frac{1}{\varphi}\). To 
-see this, recall how \(varphi\) is the fixed point for 
-\(g(x)=1+\frac{1}{x}\), then we see: 
+$$
 
+... has $N_i = D_i = 1$, then $f = \frac{1}{\varphi}$. To 
+see this, recall how $varphi$ is the fixed point for 
+$g(x)=1+\frac{1}{x}$, then we see: 
+
+$$
 \begin{align}
 g(x) &= 1+\frac{1}{x} \\
 g(g(x)) &= 1+\frac{1}{1+\frac{1}{x}} \\
 g(g(g(x))) &= 1+\frac{1}{1+\frac{1}{1+\frac{1}{x}}} \\
 g(\dots g(x)) &= 1+\frac{1}{1+\frac{1}{1+\frac{1}{\dots}}} \\
 \end{align}
+$$
 
-... this is exactly the denominator below \(N_1=1\) in \(f\), 
-assuming all \(N_i=D_i=1\), 
-but we also know as we compose \(g(x)\) to infinity we would 
-obtain \(\varphi\) (from exercise 1.35), so 
-\(f=N_1/\varphi=1/\varphi\) if we set all \(N_i=D_i=1\). 
+... this is exactly the denominator below $N_1=1$ in $f$, 
+assuming all $N_i=D_i=1$, 
+but we also know as we compose $g(x)$ to infinity we would 
+obtain $\varphi$ (from exercise 1.35), so 
+$f=N_1/\varphi=1/\varphi$ if we set all $N_i=D_i=1$. 
 
 + [Calculated iteratively using `cont-frac`](./Exercise_Source/E1_37a.scm). 
 ```scheme
@@ -2549,7 +2672,7 @@ obtain \(\varphi\) (from exercise 1.35), so
   k)
 ;Value: .6180339887498948
 
-1 ]=> ; Actual value for \(\frac{1}{\varphi}\): 
+1 ]=> ; Actual value for $\frac{1}{\varphi}$: 
 (/ 1.0 (/ (+ 1 (sqrt 5)) 2.0))
 ;Value: .6180339887498948
 ```
@@ -2628,7 +2751,7 @@ obtain \(\varphi\) (from exercise 1.35), so
   (lambda (x) (+ (cube x) (* a (square x)) (* b x) c)))
 ;Value: cubic
 
-1 ]=> ; Solve \(0 = x^3 - 2x^2 - 9x + 18
+1 ]=> ; Solve $0 = x^3 - 2x^2 - 9x + 18
 ; Known results: -3, 2, 3
 
 (newton-method (cubic -2 -9 18) -4.0)
@@ -2679,42 +2802,51 @@ an explanation. The key is that `(double double)` is doubled:
 (((double double) (double (double inc))) 5)
 ((double (double (double (double inc)))) 5)
 ```
-+ In general, if we rewrite `double` as \(d\), we can show that 
-\(d^n(d)(f(x)) = f^{2^{2^n}}(x)\). 
++ In general, if we rewrite `double` as $d$, we can show that 
+$d^n(d)(f(x)) = f^{2^{2^n}}(x)$. 
 
 ## Exercise 1.41 Proposition
 
-Consider the set \(F\) of functions \(f\), where:
+Consider the set $F$ of functions $f$, where:
 
-\[F = \{ f: x\in X \implies f(x)\in X\}\]
+$$
+F = \{ f: x\in X \implies f(x)\in X\}
+$$
 
-In other words, \(F\) is the set of all single-argument functions \(f\) 
-where the range of \(f\) is a subset of the domain of \(f\). Define 
-a function \(d\) on \(F\), where: 
+In other words, $F$ is the set of all single-argument functions $f$ 
+where the range of $f$ is a subset of the domain of $f$. Define 
+a function $d$ on $F$, where: 
 
-\[d(f)(x) := f^2(x) = f(f(x)) = (f\circ f)(x)\]
+$$
+d(f)(x) := f^2(x) = f(f(x)) = (f\circ f)(x)
+$$
 
 Note the notation:
 
+$$
 \begin{align}
 f^n(x) 
   &:= \underbrace{f(\dots f}_{\mathrm{n\,times}}(x)) 
   = \left(\underbrace{f\circ\dots\circ f}_{\mathrm{n\,times}}\right)(x)
 \end{align}
+$$
 
-Remark that by construction of \(F\), \(d\in F\). Therefore \(d(d)\) is 
-defined in \(F\). 
+Remark that by construction of $F$, $d\in F$. Therefore $d(d)$ is 
+defined in $F$. 
 
 The following can be shown: 
 
-\[ d^n(d)(f(x)) = f^{2^{2^{n}}}(x)\]
+$$
+ d^n(d)(f(x)) = f^{2^{2^{n}}}(x)
+$$
 
 ### Proof of Exercise 1.41 Proposition
 
 We use induction to prove our proposition. 
 
-#### Base Case \(n=0\)
+#### Base Case $n=0$
 
+$$
 \begin{align}
   d^0(d)(f(x)) 
     &= (d)(f)(x) \\
@@ -2724,31 +2856,39 @@ We use induction to prove our proposition.
   d^0(d)(f(x)) 
     &= f^{2^{2^0}}(x)
 \end{align}
+$$
 
 This is exactly what we need. 
 
 #### Inductive Step
 
-Assume for some \(n\), we have: 
+Assume for some $n$, we have: 
 
-\[d^n(d)(f(x))=f^{2^{2^n}}(x)\]
+$$
+d^n(d)(f(x))=f^{2^{2^n}}(x)
+$$
 
-... for all \(f\in F\). Let \(d':= d^n(d)\), then we see: 
+... for all $f\in F$. Let $d':= d^n(d)$, then we see: 
 
-\[ d^{n+1}(d) = d(d^n(d)) = d(d') \]
+$$
+ d^{n+1}(d) = d(d^n(d)) = d(d') 
+$$
 
-By the inductive premise, \(d'(f(x)) = f^{2^{2^n}}(x)\). Then: 
+By the inductive premise, $d'(f(x)) = f^{2^{2^n}}(x)$. Then: 
 
+$$
 \begin{align}
   d^{n+1}(d)(f(x)) 
     &= d(d')(f(x)) \\
     &= d'(d'(f(x))) \\
     &= d'(f^{2^{2^n}}(x)) \\
 \end{align}
+$$
 
-But by construction \(f^{2^{2^n}}\) is in \(F\), therefore for 
-\(f':=f^{2^{2^n}}\), \(d'(f') = f'^{2^{2^n}} = (f^{2^{2^n}})^{2^{2^n}}\): 
+But by construction $f^{2^{2^n}}$ is in $F$, therefore for 
+$f':=f^{2^{2^n}}$, $d'(f') = f'^{2^{2^n}} = (f^{2^{2^n}})^{2^{2^n}}$: 
 
+$$
 \begin{align}
   d^{n+1}(d)(f(x)) 
     &= (f^{2^{2^n}})^{2^{2^n}}(x) \\
@@ -2758,6 +2898,7 @@ But by construction \(f^{2^{2^n}}\) is in \(F\), therefore for
   d^{n+1}(d)(f(x)) 
     &= f^{2^{2^{n+1}}}(x)
 \end{align}
+$$
 
 This is exactly what we need, and proves our proposition. 
 
@@ -2835,14 +2976,16 @@ This is exactly what we need, and proves our proposition.
 # Exercise 1.45
 
 By [testing](./Exercise_Source/E1_45a.scm), it seems that if taking the 
-\(n^{\mathrm{th}}\) root of \(x\) (i.e. \(\sqrt[n]{x}\)), we need 
-\(k-1\) dampings, where \(k\) is the smallest integer that obeys:
+$n^{\mathrm{th}}$ root of $x$ (i.e. $\sqrt[n]{x}$), we need 
+$k-1$ dampings, where $k$ is the smallest integer that obeys:
 
+$$
 \begin{align}
   n &\lt 2^k \\
   \log n &\lt k \log 2 \\
   \frac{\log n}{\log 2} &\lt k
 \end{align}
+$$
 
 ```scheme
 1 ]=> ;
