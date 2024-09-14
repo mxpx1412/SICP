@@ -639,16 +639,12 @@ $$
 Thus: 
 
 $$
-
   |r-(k-l)| = l-(k-r) \gt l-\frac{1}{2} 
   \geq 1-\frac{1}{2} = \frac{1}{2}
-
 $$
 
 $$
-
   \therefore |r-(k-l)| > \frac{1}{2}
-
 $$
 
 So $k-l$ is no closer to $r$ than $k$, since 
@@ -661,15 +657,11 @@ is.
 Then let us consider $k+l$. We see $k+l \gt k \gt r$ so: 
 
 $$
-
   |(k+l)-r| = (k+l)-r = (k-r)+l \geq (k-r)+1 \gt 0+1 \gt \frac{1}{2}
-
 $$
 
 $$
-
   \therefore |(k+l)-r|>\frac{1}{2}
-
 $$
 
 So $k+l$ is also no closer to $r$ than $k$ since 
@@ -687,17 +679,13 @@ Consider again $l\in\mathbb{Z}$ where $l\gt 0$. Then for
 $k+l$, we see that: 
 
 $$
-
   |k-r| = |r-k| = r-k \lt \frac{1}{2} \implies r \lt k + \frac{1}{2}
-
 $$
 
 Thus: 
 
 $$
-
   k+l \geq k+1 \gt k+\frac{1}{2} \gt r \gt k \implies k+l\gt r\gt k
-
 $$
 
 Then consider $|(k+l)-r|$. Since $k+l \gt r$, we have: 
@@ -725,15 +713,11 @@ $$
 Thus:
 
 $$
-
 |(k+l)-r| = l-(r-k) \gt l-\frac{1}{2} \gt 1-\frac{1}{2} \gt \frac{1}{2}
-
 $$
 
 $$
-
 \therefore |(k+l)-r| \gt \frac{1}{2}
-
 $$
 
 So $k+l$ is no closer to $r$ than $k$, since 
@@ -745,15 +729,11 @@ no integer larger than $k$ are closer to $r$ than $k$.
 Then let us consider $k-l$. We see $r \gt k \gt k-l$ so: 
 
 $$
-
   |(k-l)-r| = r-(k-l) = (r-k)+l \geq (r-k)+1 \gt 0+1 \gt \frac{1}{2}
-
 $$
 
 $$
-
   \therefore |(k-l)-r| \gt \frac{1}{2}
-
 $$
 
 So similarly $k-l$ is no closer to $r$ than $k$ since 
@@ -1229,9 +1209,7 @@ Let $T^2_{p'q'} = T_{pq}(T_{pq}(a, b))$, $p':=p^2 + q^2$ and
 $q':=2pq + q^2$, then we have:
 
 $$
-
   T^2_{pq}(a, b) := T_{pq}(T_{pq}(a, b)) = T_{p'q'}(a, b)
-
 $$
 
 ### Proof
@@ -2613,9 +2591,7 @@ $x^x = 1000$.
 If the infinite continued fraction: 
 
 $$
-
 f=\frac{N_1}{D_1 + \frac{N_2}{D_2 + \frac{N_3}{D_3 + \dots}}}
-
 $$
 
 ... has $N_i = D_i = 1$, then $f = \frac{1}{\varphi}$. To 
