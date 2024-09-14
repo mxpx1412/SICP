@@ -12,7 +12,7 @@ $a \equiv b \pmod{m}$.
 
 ## *Proof*: 
 
-### $\implies$ 
+### " $\implies$ "
 
 + we have $a \equiv b\pmod{m}$. Express 
 $a = q_1 m + r_1$ and $b = q_2 m + r_2$ by Euclidean division, 
@@ -36,7 +36,7 @@ $r_1 - r_2 = 0 \implies r_1 = r_2$. This means given
 $a\equiv b\pmod{m}$, we see $a$ and $b$ have the same 
 remainder $r_1 = r_2 = r$ when divided by $m$.
 
-### $\impliedby$
+### " $\impliedby$ "
 
 + Integers $a$ and $b$ have the same remainder $r$ when 
 divided by $m$, then $a=q_1 m + r$ and $b=q_2 m + r$. 
@@ -46,14 +46,15 @@ that $a\equiv b\pmod{m}$ with $k=(q_1 - q_2)$.
 
 ## Properties of Congruent Modulo $m$
 
-+ The following are properties of congruent modulo $m$:
-    + **Reflexive**: $a\equiv a \pmod{m}$, since we see 
-    $a-a = 0\cdot m$.
-    + **Symmetric**: we see that 
-    $a\equiv b\pmod{m} \implies b\equiv a\pmod{m}$, since 
-    $a-b=km \implies b-a=-km=lm$ with $l=-k$.
-    + **Transitive**: we see that $a\equiv b\pmod{m}$ and 
-    $b\equiv \pmod{m}$ means $a\equiv c\pmod{m}$, because: 
+The following are properties of congruent modulo $m$:
+
++ **Reflexive**: $a\equiv a \pmod{m}$, since we see 
+$a-a = 0\cdot m$.
++ **Symmetric**: we see that 
+$a\equiv b\pmod{m} \implies b\equiv a\pmod{m}$, since 
+$a-b=km \implies b-a=-km=lm$ with $l=-k$.
++ **Transitive**: we see that $a\equiv b\pmod{m}$ and 
+$b\equiv \pmod{m}$ means $a\equiv c\pmod{m}$, because: 
 
 $$
 \begin{align}
@@ -62,10 +63,10 @@ a-c &= (k_{ab}+k_{bc})m
 \end{align}
 $$
 
-+ For remaining listed properties, assume premise of $a\equiv b\pmod{m}$ 
+For remaining listed properties, assume premise of $a\equiv b\pmod{m}$ 
 and $c \equiv d\pmod{m}$, where $a-b=km$ and $c-d=lm$:
-    + **Compatibility with addition**: 
-    $(a+c) \equiv (b+d)\pmod{m}$:
+
++ **Compatibility with addition**: $(a+c) \equiv (b+d)\pmod{m}$:
         
 $$
 \begin{align}
@@ -75,7 +76,7 @@ $$
 \end{align}
 $$
 
-  + **Compatibility with multiplication**: $ac \equiv bd \pmod{m}$:
++ **Compatibility with multiplication**: $ac \equiv bd \pmod{m}$:
         
 $$
 \begin{align}
