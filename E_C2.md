@@ -829,10 +829,8 @@ the factors' tolerances.
 $1/A$ would have approximately the same percent tolerance as $A$.
 + To see this consider $\frac{1}{A}$:
 
-$$
-
-\frac{1}{A} = \left[ \frac{1}{c_A + w_A}, \frac{1}{c_A - w_A} \right] \\
-
+$$ 
+\frac{1}{A} = \left[ \frac{1}{c_A + w_A}, \frac{1}{c_A - w_A} \right] 
 $$
 
 + The width of $\frac{1}{A}$:
@@ -951,7 +949,6 @@ property that:
 $$
 I+\mathbf{0}=[l_I + 0, u_I+0]=[l_I,u_I]=I
 $$
-. 
 
 What is different however, is that we do not generally obtain $\mathbb{0}$ 
 by computing $I-I$:

@@ -2800,9 +2800,7 @@ $$
 Note the notation:
 
 $$
-f^n(x) 
-  := \underbrace{f(\dots f}_{\mathrm{n\,times}}(x)) 
-  = \left(\underbrace{f\circ\dots\circ f}_{\mathrm{n\,times}}\right)(x)
+f^n(x) := \underbrace{f(\dots f}_{\mathrm{n\,times}}(x)) = \left(\underbrace{f\circ\dots\circ f}_{\mathrm{n\,times}}\right)(x)
 $$
 
 Remark that by construction of $F$, $d\in F$. Therefore $d(d)$ is 
