@@ -955,12 +955,12 @@ $$
 T(n, k+1)
   &= \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} T(n-iv_k, k) \\
   &= \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} (C_k n^k + \Theta(n^{k-1})) \\
-  &= \left( \frac{n}{v_k} \right)C_k n^k 
-  + \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} \Theta(n^{k-1}) \\
-  &= \frac{C_k}{v_k} n^{k+1} 
-  + \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} \left(C_{k-1}n^{k-1}+\dots+C_0n^0 \right) \\
-  &= \frac{C_k}{v_k} n^{k+1} 
-  + \frac{n}{v_k} \left( C_{k-1}n^{k-1} + \dots + C_0 n^0 \right) \\
+  &= \left( \frac{n}{v_k} \right)C_k n^k + 
+    \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} \Theta(n^{k-1}) \\
+  &= \frac{C_k}{v_k} n^{k+1} +
+    \sum_{i=0}^{\mathrm{ceiling}(n/v_k)} \left(C_{k-1}n^{k-1}+\dots+C_0n^0 \right) \\
+  &= \frac{C_k}{v_k} n^{k+1} + 
+    \frac{n}{v_k} \left( C_{k-1}n^{k-1} + \dots + C_0 n^0 \right) \\
   &= \frac{C_k}{v_k} n^{k+1} + \Theta(n^k) \\
   &= \Theta(n^{k+1})
 \end{align}
@@ -2800,11 +2800,9 @@ $$
 Note the notation:
 
 $$
-\begin{align}
 f^n(x) 
-  &:= \underbrace{f(\dots f}_{\mathrm{n\,times}}(x)) 
+  := \underbrace{f(\dots f}_{\mathrm{n\,times}}(x)) 
   = \left(\underbrace{f\circ\dots\circ f}_{\mathrm{n\,times}}\right)(x)
-\end{align}
 $$
 
 Remark that by construction of $F$, $d\in F$. Therefore $d(d)$ is 
