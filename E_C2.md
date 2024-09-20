@@ -2270,3 +2270,51 @@ multiplication are commutative AND associative on $\mathbb{R}$).
 ;Value: 6
 ```
 
+# Exercise 2.39
+
++ [Exercise 2.39](./Exercise_Source/E2_39.scm)
+
+```scheme
+(define (reverse-fr sequence)
+  (fold-right 
+    (lambda (x y) 
+      (if (null? y) (list x) (append y (list x)))) 
+    () sequence))
+
+(define (reverse-fl sequence)
+  (fold-left 
+    (lambda (x y) (cons y x)) 
+    () sequence))
+```
+
+```scheme
+1 ]=> (reverse-fr '(1))
+;Value: (1)
+
+1 ]=> (reverse-fr '(1 2))
+;Value: (2 1)
+
+1 ]=> (reverse-fr '(1 2 3))
+;Value: (3 2 1)
+
+1 ]=> (reverse-fr (list 1 '(2 3)))
+;Value: ((2 3) 1)
+
+1 ]=> (reverse-fr (list '(1 2) 3))
+;Value: (3 (1 2))
+
+1 ]=> (reverse-fl '(1))
+;Value: (1)
+
+1 ]=> (reverse-fl '(1 2))
+;Value: (2 1)
+
+1 ]=> (reverse-fl '(1 2 3))
+;Value: (3 2 1)
+
+1 ]=> (reverse-fl (list 1 '(2 3)))
+;Value: ((2 3) 1)
+
+1 ]=> (reverse-fl (list '(1 2) 3))
+;Value: (3 (1 2))
+```
