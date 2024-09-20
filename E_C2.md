@@ -2096,3 +2096,177 @@ giving all subsets of $S$.
 1 ]=> (matrix-*-matrix a b)
 ;Value: ((22 28) (49 64))
 ```
+
+# Exercise 2.38 
+
++ [Exercise 2.38](./Exercise_Source/E2_38.scm)
+
+```scheme
+(define (fold-right op initial sequence) 
+  (if (null? sequence) 
+    initial 
+    (op 
+      (car sequence) 
+      (fold-right op initial (cdr sequence)))))
+```
+
+```scheme
+(define (fold-left op initial sequence)
+    (define (iter result rest)
+      (if (null? rest)
+        result
+        (iter (op result (car rest))
+          (cdr rest))))
+  (iter initial sequence))
+```
+
+Predicting: 
+```scheme
+(fold-right / 1 (list 1 2 3))
+```
+
+$$
+\begin{align}
+  \mathrm{FR}\left(/,\,1,\,\left[1,\,2,\,3\right]\right) 
+    &= \frac{1}{\left(\frac{2}{\left(\frac{3}{1}\right)}\right)} \\
+    &= \frac{1}{\left(\frac{2}{3}\right)} \\
+    &= \frac{3}{2} \\
+\end{align}
+$$
+
+Predicting: 
+```scheme
+(fold-left / 1 (list 1 2 3))
+```
+
+$$
+\begin{align}
+  \mathrm{FL}\left(/,\,1,\,\left[1,\,2,\,3\right]\right) 
+    &= \frac{\left(\frac{\left(\frac{1}{1}\right)}{2}\right)}{3} \\
+    &= \frac{\left(\frac{1}{2}\right)}{3} \\
+    &= \frac{1}{6} \\
+\end{align}
+$$
+
+Predicting: 
+```scheme
+(fold-right list nil (list 1 2 3))
+```
+
+```scheme
+(list 1 (list 2 (list 3 (list ()))))
+(list 1 (list 2 (list 3 ())))
+(list 1 (list 2 (3 ())))
+(list 1 (2 (3 ())))
+'(1 (2 (3 ())))
+```
+
+Predicting: 
+```scheme
+(fold-left list nil (list 1 2 3))
+```
+
+```scheme
+(list (list (list () 1) 2) 3)
+(list (list (() 1) 2) 3)
+(list ((() 1) 2) 3)
+(((() 1) 2) 3)
+```
+
+Actual output: 
+```scheme
+1 ]=> (fold-right / 1 '(1 2 3))
+;Value: 3/2
+
+1 ]=> (fold-left / 1 '(1 2 3))
+;Value: 1/6
+
+1 ]=> (fold-right list () (list 1 2 3))
+;Value: (1 (2 (3 ())))
+
+1 ]=> (fold-left list () (list 1 2 3))
+;Value: (((() 1) 2) 3)
+```
+
+The results are as expected. 
+
+It appears that in order for `fold-left` and `fold-right` to yield the same 
+result: 
++ The operation given has to be *commutative* - that is, the order of the 
+operands must not matter: $\mathrm{op}(a,\,b)=\mathrm{op}(b,\,a)\forall a,\,b$
++ The operation given has to be *associative* - that is, re-arranging 
+parentheses must give the same result: 
+$\mathrm{op}(\mathrm{op}(a,\,b),\,c)=\mathrm{op}(a,\,\mathrm{op}(b,\,c))$
+
+The commutative part is easy to see by considering subtraction. 
+
+For the associative part, consider $f:\mathbb{R}\rightarrow\mathbb{R}$ 
+defined as $f(x,\,y)=2(x+y)$. It is obvious that $f$ is commutative, 
+where $f(x,y)=f(y,x)$. It is also clear that $f$ is not associative: 
+$$
+f(f(x,y),z)=2(2(x+y)+z)=4x+4y+z \neq f(x,f(y,z))=2(x+2(y+z))=2x+4y+4z
+$$
+
+Predicting: 
+```scheme
+(fold-right f 0 '(1 2 3))
+```
+
+$$
+\begin{align}
+  f(1,\,f(2,\,f(3,\,0))) 
+    &= f(1,\,f(2,\,6)) \\
+    &= f(1,\,16) \\
+    &= 34
+\end{align}
+$$
+
+Predicting: 
+```scheme
+(fold-left f 0 '(1 2 3))
+```
+$$
+\begin{align}
+  f(f(f(0, 1), 2), 3)
+    &= f(f(2, 2), 3) \\
+    &= f(8, 3) \\
+    &= 22
+\end{align}
+$$
+
+```scheme
+(define (f x y) (* 2 (+ x y)))
+;Value: f
+```
+
+Actual output: 
+```scheme
+1 ]=> (fold-right f 0 '(1 2 3))
+;Value: 34
+
+1 ]=> (fold-left f 0 '(1 2 3))
+;Value: 22
+```
+
+The above examples are does not mean that commutative and associative 
+properties are sufficient for `fold-left` and `fold-right` to yield the 
+same results, but that they are necessary conditions. 
+
+In contrast to the above examples, if `op` is chosen to be `+` or `*`, both 
+of the fold procedures should produce the same result (addition and 
+multiplication are commutative AND associative on $\mathbb{R}$). 
+
+```scheme
+(fold-right + 1 '(1 2 3))
+;Value: 7
+
+1 ]=> (fold-left + 1 '(1 2 3))
+;Value: 7
+
+1 ]=> (fold-right * 1 '(1 2 3))
+;Value: 6
+
+1 ]=> (fold-left * 1 '(1 2 3))
+;Value: 6
+```
+
